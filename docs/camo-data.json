@@ -10,14 +10,14 @@
       "name": "Han 86",
       "class": "ar",
       "military": [
-        10,
-        18,
-        25,
-        34,
-        42,
-        50,
-        57,
-        65
+        9,
+        17,
+        24,
+        33,
+        41,
+        49,
+        56,
+        64
       ],
       "military_names": null,
       "special": [
@@ -44,20 +44,21 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Spelling: Game Rant \"Storm Wave\", CODMunity \"Stormwave\"; CODMunity used."
+      "notes": "Spelling: Game Rant \"Storm Wave\", CODMunity \"Stormwave\"; CODMunity used. Military levels checked in game 2026-10-28 (web sources said [10, 18, 25, 34, 42, 50, 57, 65]).",
+      "verified": true
     },
     {
       "name": "M4",
       "class": "ar",
       "military": [
-        10,
-        18,
-        26,
-        35,
-        39,
-        44,
-        51,
-        59
+        9,
+        17,
+        25,
+        34,
+        43,
+        50,
+        58,
+        63
       ],
       "military_names": null,
       "special": [
@@ -84,7 +85,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "Military levels checked in game 2026-10-28 (web sources said [10, 18, 26, 35, 39, 44, 51, 59]).",
+      "verified": true
     },
     {
       "name": "Hyeon Burst",
@@ -124,7 +126,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Military Camo 8: Game Rant says level 63, CODMunity says level 62; CODMunity used. Kitty Kaos MP: Game Rant \"Get 100 Kills against Players using Full Auto\" vs CODMunity \"Get 100 Player Kills while using a silencer\"; CODMunity used. Kitty Kaos DMZ: Both sources say \"against Players using a silencer\" for the DMZ half; kept as published."
+      "notes": "Military Camo 8: Game Rant says level 63, CODMunity says level 62; CODMunity used. Kitty Kaos MP: Game Rant \"Get 100 Kills against Players using Full Auto\" vs CODMunity \"Get 100 Player Kills while using a silencer\"; CODMunity used. Kitty Kaos DMZ: Both sources say \"against Players using a silencer\" for the DMZ half; kept as published.",
+      "verified": false
     },
     {
       "name": "Kastov 762",
@@ -164,7 +167,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Samnim MP: Game Rant \"Get 3 Kills without dying 10 times\" vs CODMunity \"Get 4 kills without dying 10 times\"; CODMunity used."
+      "notes": "Samnim MP: Game Rant \"Get 3 Kills without dying 10 times\" vs CODMunity \"Get 4 kills without dying 10 times\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "Patriot XMR",
@@ -204,7 +208,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Axion",
@@ -244,7 +249,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Oden",
@@ -284,7 +290,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Cronen Squall",
@@ -324,7 +331,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Urban Smoke DMZ: Both sources list 20 Mounted Kills for DMZ (same as MP); kept as published. Optical Reverb DMZ: Both sources list ADS kills for the DMZ half while MP is a no-death streak; kept as published."
+      "notes": "Urban Smoke DMZ: Both sources list 20 Mounted Kills for DMZ (same as MP); kept as published. Optical Reverb DMZ: Both sources list ADS kills for the DMZ half while MP is a no-death streak; kept as published.",
+      "verified": false
     },
     {
       "name": "ISO Nightshade",
@@ -364,7 +372,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "PPSh-41",
@@ -404,7 +413,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Blackwell DMZ: Both sources say \"Double Kills against Players\" for the DMZ half; kept as published."
+      "notes": "Blackwell DMZ: Both sources say \"Double Kills against Players\" for the DMZ half; kept as published.",
+      "verified": false
     },
     {
       "name": "X-58 Nyx",
@@ -444,7 +454,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Lime DMZ: Both sources list Longshot for the DMZ half while MP is Headshot; kept as published."
+      "notes": "Lime DMZ: Both sources list Longshot for the DMZ half while MP is Headshot; kept as published.",
+      "verified": false
     },
     {
       "name": "Wz.55 Striga",
@@ -484,7 +495,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "VEL 46",
@@ -524,7 +536,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Jungle Shadow MP: Game Rant \"Get 20 Enemy Kills while Prone\" vs CODMunity \"Get 50 Player Kills while Aiming Down Sight\"; CODMunity used."
+      "notes": "Jungle Shadow MP: Game Rant \"Get 20 Enemy Kills while Prone\" vs CODMunity \"Get 50 Player Kills while Aiming Down Sight\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "Rezi 12",
@@ -564,7 +577,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Warlord",
@@ -604,7 +618,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "APOC-338",
@@ -644,7 +659,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "FiNN LMG",
@@ -684,7 +700,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Thunderhead MP: Game Rant lists TBD, CODMunity publishes \"Get 30 Longshot Kills against Players\"; CODMunity used."
+      "notes": "Thunderhead MP: Game Rant lists TBD, CODMunity publishes \"Get 30 Longshot Kills against Players\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "Type 73",
@@ -724,7 +741,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Special camo \"Mineral\" on Game Rant is \"Outcrop\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used. Special camo \"Tiger Swipe\" on Game Rant is \"Foxtrail\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used."
+      "notes": "Special camo \"Mineral\" on Game Rant is \"Outcrop\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used. Special camo \"Tiger Swipe\" on Game Rant is \"Foxtrail\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used.",
+      "verified": false
     },
     {
       "name": "MAR-9",
@@ -764,7 +782,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Mosin-Nagant",
@@ -804,7 +823,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Fractal Snow MP: Game Rant \"Get 3 Player Kills without Dying 15 times\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used. Fractal Snow DMZ: Both sources list \"without Dying\" for the DMZ half while the MP half says \"without Reloading\"; kept as published. Sticker Shock MP: Game Rant \"Get 20 Headshots against Players\" vs CODMunity \"Get 100 Player Kills while Focused\"; CODMunity used."
+      "notes": "Fractal Snow MP: Game Rant \"Get 3 Player Kills without Dying 15 times\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used. Fractal Snow DMZ: Both sources list \"without Dying\" for the DMZ half while the MP half says \"without Reloading\"; kept as published. Sticker Shock MP: Game Rant \"Get 20 Headshots against Players\" vs CODMunity \"Get 100 Player Kills while Focused\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "Oris 8.6",
@@ -844,7 +864,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Astaroth .57",
@@ -884,7 +905,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "KG-7 Vulcan",
@@ -924,7 +946,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Treeline DMZ: Game Rant lists TBD, CODMunity publishes \"Get 25 Enemy Hipfire Kills\"; CODMunity used. Spidersilk DMZ: Game Rant \"Get 75 Kills while Focused\" vs CODMunity \"Get 75 Headshot Kills against Enemies\"; CODMunity used."
+      "notes": "Treeline DMZ: Game Rant lists TBD, CODMunity publishes \"Get 25 Enemy Hipfire Kills\"; CODMunity used. Spidersilk DMZ: Game Rant \"Get 75 Kills while Focused\" vs CODMunity \"Get 75 Headshot Kills against Enemies\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "Signal 50",
@@ -964,7 +987,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Sunburn DMZ: Both sources list One Shot Kills for the DMZ half while MP is Longshot; kept as published. Platinum DMZ and Harmonic Break DMZ use 200 Enemy Kills on this weapon (CODMunity per-weapon, Game Rant says \"150 or 200\"); other snipers use 150."
+      "notes": "Sunburn DMZ: Both sources list One Shot Kills for the DMZ half while MP is Longshot; kept as published. Platinum DMZ and Harmonic Break DMZ use 200 Enemy Kills on this weapon (CODMunity per-weapon, Game Rant says \"150 or 200\"); other snipers use 150.",
+      "verified": false
     },
     {
       "name": ".50 GS",
@@ -1004,7 +1028,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Krait P68",
@@ -1044,7 +1069,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "Mojave .357",
@@ -1084,7 +1110,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Miami MP: Game Rant \"Get 20 Headshot Kills against Players\" vs CODMunity \"Get 15 One Shot Kills against Players\"; CODMunity used. Miami DMZ: Both sources say \"One Shot Kills against Players\" for the DMZ half; kept as published. Wallpaper MP: Game Rant \"Get 7 Double Kills against Players\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used."
+      "notes": "Miami MP: Game Rant \"Get 20 Headshot Kills against Players\" vs CODMunity \"Get 15 One Shot Kills against Players\"; CODMunity used. Miami DMZ: Both sources say \"One Shot Kills against Players\" for the DMZ half; kept as published. Wallpaper MP: Game Rant \"Get 7 Double Kills against Players\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "SANG 9mm",
@@ -1124,7 +1151,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Snakeskin MP: Game Rant \"Get 50 Player Kills while using Akimbo\" vs CODMunity \"Get 3 Player Kills without dying 5 times\"; CODMunity used. Space Time MP: Game Rant \"Get 3 Player Kills without dying 5 times\" vs CODMunity \"Get 50 Player Kills while using Akimbo\"; CODMunity used."
+      "notes": "Snakeskin MP: Game Rant \"Get 50 Player Kills while using Akimbo\" vs CODMunity \"Get 3 Player Kills without dying 5 times\"; CODMunity used. Space Time MP: Game Rant \"Get 3 Player Kills without dying 5 times\" vs CODMunity \"Get 50 Player Kills while using Akimbo\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "JOKR",
@@ -1164,7 +1192,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 50 Enemy Kills in a single match"
       },
-      "notes": "Thicket MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 5 Double Kills against Players\"; CODMunity used. Tectonic MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."
+      "notes": "Thicket MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 5 Double Kills against Players\"; CODMunity used. Tectonic MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "PILA",
@@ -1204,7 +1233,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 50 Enemy Kills in a single match"
       },
-      "notes": ""
+      "notes": "",
+      "verified": false
     },
     {
       "name": "PM-40 Anvil",
@@ -1244,7 +1274,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 50 Enemy Kills in a single match"
       },
-      "notes": "Military Camo 4: Game Rant says level 26, CODMunity says level 21; CODMunity used. Night Snow MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Players\"; CODMunity used. Night Snow DMZ: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Enemies\"; CODMunity used. Recursive MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 2 Kills without Reloading 5 times against Players\"; CODMunity used. Urban Standard MP: Game Rant \"Destroy 30 Killstreaks or Vehicles\" vs CODMunity \"Get 40 Player Kills while moving\"; CODMunity used."
+      "notes": "Military Camo 4: Game Rant says level 26, CODMunity says level 21; CODMunity used. Night Snow MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Players\"; CODMunity used. Night Snow DMZ: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Enemies\"; CODMunity used. Recursive MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 2 Kills without Reloading 5 times against Players\"; CODMunity used. Urban Standard MP: Game Rant \"Destroy 30 Killstreaks or Vehicles\" vs CODMunity \"Get 40 Player Kills while moving\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "RPG-8",
@@ -1284,7 +1315,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 50 Enemy Kills in a single match"
       },
-      "notes": "Digi Bark MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 10 Player Kills while Prone\"; CODMunity used. Stone Bits MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."
+      "notes": "Digi Bark MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 10 Player Kills while Prone\"; CODMunity used. Stone Bits MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used.",
+      "verified": false
     },
     {
       "name": "FSS Carbon Edge 1095",
@@ -1324,7 +1356,8 @@
         "mp": "Get 15 Player Kills in a single match",
         "dmz": "Get 100 Enemy Kills in a single match"
       },
-      "notes": "Raster Lite MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills while Jumping\"; CODMunity used. Stockpile MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills using the Heavy Melee Finisher\"; CODMunity used. Deathbed MP: Game Rant lists TBD, CODMunity publishes \"Get 2 Kills in 5 seconds against Players 25 times\"; CODMunity used."
+      "notes": "Raster Lite MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills while Jumping\"; CODMunity used. Stockpile MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills using the Heavy Melee Finisher\"; CODMunity used. Deathbed MP: Game Rant lists TBD, CODMunity publishes \"Get 2 Kills in 5 seconds against Players 25 times\"; CODMunity used.",
+      "verified": false
     }
   ],
   "platinum": {

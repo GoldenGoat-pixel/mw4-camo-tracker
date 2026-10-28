@@ -48,6 +48,8 @@ def main():
             "name": w["name"],
             "cls": w["class"],
             "mil": mil,
+            # Web guides got these wrong, so only levels read from the game count as verified.
+            "v": bool(w.get("verified")),
             "sp": [
                 {"name": s.get("name"), **(challenge(s) or {})} if isinstance(s, dict) else None
                 for s in sp[:3]

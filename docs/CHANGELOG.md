@@ -1,9 +1,18 @@
 # Changelog
 
+## [1.1.1] - 2026-10-28
+
+### Fixed
+- **Han 86 and M4 military levels now match the game**: Han 86 is 9, 17, 24, 33, 41, 49, 56, 64 and M4 is 9, 17, 25, 34, 43, 50, 58, 63, read off the in-game camo screen. The web guides behind 1.1.0 had both wrong, and not by a fixed amount, so their numbers can't be corrected with a formula.
+
+### Changed
+- **Unchecked levels are marked**: Military levels that haven't been read from the game yet show in grey italics, and the legend explains that some are wrong. Each gun's detail sheet says "checked in game" or "not checked in game" next to Military. Only Han 86 and M4 are checked so far.
+- In `docs/camo-data.json`, each weapon now has a `verified` flag. Set it to true only for levels read from the game.
+
 ## [1.1.0] - 2026-10-28
 
 ### Fixed
-- **Military camo levels are now correct for every gun**: Each military cell shows the weapon level that camo unlocks at, and the levels are different per gun (Han 86 is 10, 18, 25, 34, 42, 50, 57, 65; the KG-7 Vulcan goes up to 69; launchers and the knife stop at 41). The old version used one level table for all guns. Values are cross-checked between Game Rant and CODMunity, and the few spots where they disagree are listed in each gun's detail sheet.
+- **Military camo levels are now per gun**: Each military cell shows the weapon level that camo unlocks at, and each gun has its own set. The old version used one level table for all guns. Values came from Game Rant and CODMunity. These later turned out to be unreliable (see 1.1.1).
 - **Tapping camos after a reset works again**: Reset used to register every click twice, so cells flipped on and straight back off.
 - **Weapon list matches the game**: 33 guns. The Combat Knife was removed since it isn't in MW4.
 - **Phone layout**: The page now renders at proper phone scale instead of a zoomed-out desktop view.

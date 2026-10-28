@@ -1,735 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
 <title>MW4 Camo Tracker</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&family=Saira+Condensed:wght@500;600;700&display=swap">
 <style>
-/* Dark-first: military command center with warm brass accent */
 :root {
-  --bg: #18171c;
-  --bg-raised: #222128;
-  --bg-hover: #2a2930;
-  --bg-inset: #131217;
-  --fg: #d8d4cc;
-  --fg-muted: #807c74;
-  --fg-dim: #504d47;
-  --accent: #b49a54;
-  --accent-subtle: rgba(180,154,84,0.15);
-  --border: #2e2d34;
-  --border-focus: #b49a54;
-  --military: #7a8c4a;
-  --special: #4a8a7a;
-  --gold: #caa44c;
-  --platinum: #8ca0b8;
-  --harmonic: #8a5cb0;
-  --divergence: #c04040;
-  --mastery-mp: #3a9aba;
-  --mastery-dmz: #ba6a3a;
-  --mastery-prestige: #d4aa30;
-  --radius: 10px;
-  --radius-sm: 6px;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme:light) {
-  :root:not([data-theme="dark"]) {
-    --bg:#f0ede6;--bg-raised:#faf8f4;--bg-hover:#f0ede6;--bg-inset:#e6e3dc;
-    --fg:#2a2720;--fg-muted:#7a766c;--fg-dim:#b0aca4;
-    --accent:#8a7340;--accent-subtle:rgba(138,115,64,0.12);
-    --border:#dad6cc;--border-focus:#8a7340;
-    --military:#5a6c3a;--special:#3a7a6a;--gold:#aa8a3c;--platinum:#6a80a0;
-    --harmonic:#7a4ca0;--divergence:#b03030;
-    --mastery-mp:#2a8aaa;--mastery-dmz:#aa5a2a;--mastery-prestige:#b48a20;
-    color-scheme:light;
-  }
-}
-:root[data-theme="light"] {
-  --bg:#f0ede6;--bg-raised:#faf8f4;--bg-hover:#f0ede6;--bg-inset:#e6e3dc;
-  --fg:#2a2720;--fg-muted:#7a766c;--fg-dim:#b0aca4;
-  --accent:#8a7340;--accent-subtle:rgba(138,115,64,0.12);
-  --border:#dad6cc;--border-focus:#8a7340;
-  --military:#5a6c3a;--special:#3a7a6a;--gold:#aa8a3c;--platinum:#6a80a0;
-  --harmonic:#7a4ca0;--divergence:#b03030;
-  --mastery-mp:#2a8aaa;--mastery-dmz:#aa5a2a;--mastery-prestige:#b48a20;
-  color-scheme:light;
-}
+  --bg: #0d0e0c;
+  --panel: #151714;
+  --panel-2: #1b1e1a;
+  --line: #262a24;
+  --line-2: #343a31;
+  --fg: #e4e2da;
+  --fg-2: #9c9d92;
+  --fg-3: #5f625a;
+  --accent: #e2b341;
 
-body {
-  background: var(--bg); color: var(--fg);
-  font-family: system-ui, -apple-system, sans-serif;
-  padding-inline: 16px; padding-block: 0;
-  max-width: 720px; margin: 0 auto;
-}
-*, *::before, *::after { box-sizing: border-box }
-h1,h2,h3 { font-family: 'Chakra Petch', system-ui, sans-serif; margin: 0; font-weight: 700 }
-p { margin: 0 }
+  --military: #6f8a3c;
+  --special: #3f8f84;
+  --gold: #d6a93a;
+  --platinum: #a9b8c8;
+  --harmonic: #9065c9;
+  --divergence: #d0453b;
 
-/* ---- Header ---- */
-.header {
-  padding: 32px 0 24px;
-  border-bottom: 2px solid var(--accent);
-  margin-bottom: 28px;
-  display: flex; justify-content: space-between; align-items: flex-end;
-  flex-wrap: wrap; gap: 12px;
-}
-.header h1 { font-size: 26px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.1 }
-.header .sub {
-  font-size: 13px; color: var(--fg-muted); margin-top: 6px;
-  font-family: 'Chakra Petch', system-ui, sans-serif; letter-spacing: 0.5px;
-}
-.btn-sm {
-  padding: 7px 16px; border-radius: var(--radius-sm);
-  border: 1px solid var(--border); background: var(--bg-raised);
-  color: var(--fg-muted); font-size: 12px; cursor: pointer;
-  font-family: 'Chakra Petch', system-ui, sans-serif;
-  letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.15s;
-}
-.btn-sm:hover { border-color: var(--fg-dim); color: var(--fg) }
-.btn-danger { color: #c04040; border-color: rgba(192,64,64,0.3) }
-.btn-danger:hover { background: rgba(192,64,64,0.1); border-color: #c04040 }
-
-/* ---- Stats ---- */
-.stats-row {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 12px; margin-bottom: 28px;
+  --cell: 34px;
+  --name-w: 148px;
+  --display: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --body: 'Barlow', system-ui, sans-serif;
 }
 @media (max-width: 640px) {
-  .stats-row { grid-template-columns: 1fr 1fr }
-  .stat-main { grid-column: 1 / -1 }
-}
-.stat-card {
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 16px 18px; text-align: center;
-}
-.stat-val {
-  font-family: 'Chakra Petch', system-ui, sans-serif;
-  font-size: 30px; font-weight: 700; line-height: 1.2;
-}
-.stat-label {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--fg-muted); margin-top: 4px;
-}
-.stat-detail { font-size: 12px; color: var(--fg-dim); margin-top: 2px; font-variant-numeric: tabular-nums }
-.stat-bar { height: 6px; background: var(--bg-inset); border-radius: 3px; margin-top: 10px; overflow: hidden }
-.stat-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.4s ease }
-
-/* ---- Search ---- */
-.search-wrap { margin-bottom: 16px }
-.search-input {
-  width: 100%; padding: 12px 16px;
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); color: var(--fg);
-  font-size: 15px; font-family: inherit;
-}
-.search-input::placeholder { color: var(--fg-dim) }
-.search-input:focus { outline: none; border-color: var(--border-focus) }
-
-/* ---- Category Dropdown ---- */
-.cat-dropdown { position: relative; margin-bottom: 24px }
-.cat-select-btn {
-  width: 100%; padding: 14px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); color: var(--fg);
-  font-family: 'Chakra Petch', system-ui, sans-serif;
-  font-size: 16px; font-weight: 600; letter-spacing: 0.5px;
-  text-transform: uppercase; cursor: pointer; transition: all 0.15s;
-}
-.cat-select-btn:hover { border-color: var(--fg-dim) }
-.cat-select-btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
-.cat-select-btn .arrow {
-  transition: transform 0.2s; color: var(--fg-muted);
-}
-.cat-dropdown.open .cat-select-btn { border-color: var(--accent) }
-.cat-dropdown.open .arrow { transform: rotate(180deg) }
-.cat-menu {
-  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden; z-index: 20;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
-}
-.cat-menu-item {
-  width: 100%; padding: 13px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  border: none; background: transparent; color: var(--fg);
-  font-size: 14px; font-family: inherit; cursor: pointer;
-  transition: background 0.1s; text-align: left;
-}
-.cat-menu-item:hover { background: var(--bg-hover) }
-.cat-menu-item.active { color: var(--accent); font-weight: 600 }
-.cat-menu-item + .cat-menu-item { border-top: 1px solid var(--border) }
-.cat-menu-item .cat-menu-meta {
-  font-size: 12px; color: var(--fg-dim); font-variant-numeric: tabular-nums;
-}
-.cat-menu-item.active .cat-menu-meta { color: var(--accent); opacity: 0.7 }
-
-/* ---- Weapon Cards ---- */
-.weapons-list { display: flex; flex-direction: column; gap: 12px }
-.weapon-card {
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s;
-}
-.weapon-card[hidden] { display: none !important }
-.weapon-card.complete { border-color: var(--accent) }
-
-.weapon-card-header {
-  padding: 18px 22px; cursor: pointer; user-select: none;
-  display: flex; align-items: center; gap: 14px;
-  transition: background 0.15s;
-}
-.weapon-card-header:hover { background: var(--bg-hover) }
-
-.w-chevron { color: var(--fg-dim); transition: transform 0.2s; flex-shrink: 0 }
-.weapon-card.expanded .w-chevron { transform: rotate(90deg) }
-
-.weapon-info { flex: 1; min-width: 0 }
-.weapon-name {
-  font-size: 16px; font-weight: 600;
-  font-family: 'Chakra Petch', system-ui, sans-serif;
-}
-.weapon-meta {
-  display: flex; align-items: center; gap: 10px; margin-top: 6px;
-}
-.weapon-frac {
-  font-size: 13px; color: var(--fg-muted);
-  font-variant-numeric: tabular-nums;
-}
-.weapon-bar {
-  flex: 1; height: 6px; background: var(--bg-inset);
-  border-radius: 3px; overflow: hidden; max-width: 200px;
-}
-.weapon-bar-fill {
-  height: 100%; background: var(--accent);
-  border-radius: 3px; transition: width 0.3s ease;
-}
-.weapon-badge {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--accent); font-family: 'Chakra Petch', system-ui, sans-serif;
-  font-weight: 600; padding: 3px 10px;
-  background: var(--accent-subtle); border-radius: 20px;
-}
-.weapon-badge[hidden] { display: none !important }
-
-/* Expanded detail */
-.weapon-detail {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-}
-.weapon-card.expanded .weapon-detail { grid-template-rows: 1fr }
-.weapon-detail-inner { overflow: hidden }
-.weapon-detail-pad {
-  padding: 4px 22px 24px;
-  display: flex; flex-direction: column; gap: 18px;
+  :root { --cell: 31px; --name-w: 108px }
 }
 
-/* ---- Camo tiers ---- */
-.camo-group {}
-.camo-tier-label {
-  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--fg-muted); display: block; margin-bottom: 8px;
-  font-family: 'Chakra Petch', system-ui, sans-serif; font-weight: 600;
+* , *::before, *::after { box-sizing: border-box }
+html { -webkit-text-size-adjust: 100% }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.4 var(--body);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+  background-attachment: fixed;
 }
-.camo-tiles { display: flex; flex-wrap: wrap; gap: 8px }
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background: radial-gradient(ellipse at 50% 0%, transparent 0%, var(--bg) 70%);
+}
+button { font: inherit; color: inherit }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px 64px }
 
-/* ---- Camo tile buttons ---- */
-.tile {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 58px; height: 40px;
-  border: 1px solid var(--border); border-radius: var(--radius-sm);
-  background: var(--bg-inset); color: var(--fg-muted);
-  font-size: 13px; font-family: inherit; cursor: pointer;
-  transition: all 0.15s; padding: 0 10px; gap: 4px;
+/* Top bar */
+.top {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+  padding: 28px 0 18px; flex-wrap: wrap;
 }
-.tile:hover { border-color: var(--fg-dim); background: var(--bg-hover) }
-.tile:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
-.tile .tile-check { display: none; font-size: 11px }
-.tile[aria-pressed="true"] { color: #fff; font-weight: 600 }
-.tile[aria-pressed="true"] .tile-check { display: inline }
-.tile[data-tier="military"][aria-pressed="true"] { background: var(--military); border-color: var(--military) }
-.tile[data-tier="special"][aria-pressed="true"]  { background: var(--special);  border-color: var(--special) }
-.tile[data-tier="gold"][aria-pressed="true"]     { background: var(--gold);     border-color: var(--gold);     color: #1a1a1a }
-.tile[data-tier="platinum"][aria-pressed="true"]  { background: var(--platinum); border-color: var(--platinum); color: #1a1a1a }
-.tile[data-tier="harmonic"][aria-pressed="true"]  { background: var(--harmonic); border-color: var(--harmonic) }
-.tile[data-tier="divergence"][aria-pressed="true"]{ background: var(--divergence);border-color: var(--divergence) }
+.brand { font-family: var(--display); line-height: 1 }
+.brand small {
+  display: block; font-size: 12px; font-weight: 600; letter-spacing: 3px;
+  color: var(--accent); margin-bottom: 6px;
+}
+.brand h1 { margin: 0; font-size: 34px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase }
+.overall { text-align: right; font-family: var(--mono) }
+.overall .big { font-size: 28px; font-weight: 600; letter-spacing: -1px }
+.overall .big span { color: var(--fg-3); font-size: 18px }
+.overall .lbl { font-size: 11px; color: var(--fg-2); letter-spacing: 2px; text-transform: uppercase }
 
-/* ---- Mastery section ---- */
-.mastery-section { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border) }
-.mastery-section h2 { font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px }
-.mastery-req-text { font-size: 13px; color: var(--fg-muted); margin-bottom: 20px }
-.mastery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px }
-@media (max-width: 600px) { .mastery-grid { grid-template-columns: 1fr } }
-.mastery-group h3 {
-  font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--fg-muted); margin-bottom: 10px;
+.tierbar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line-2); background: var(--panel);
 }
-.mastery-card {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 18px; background: var(--bg-raised);
-  border: 1px solid var(--border); border-radius: var(--radius);
-  margin-bottom: 8px; transition: all 0.15s;
+.tierbar > div { padding: 10px 14px; border-left: 1px solid var(--line-2) }
+.tierbar > div:first-child { border-left: 0 }
+.tierbar .n { font-family: var(--mono); font-size: 20px; font-weight: 600 }
+.tierbar .n span { color: var(--fg-3); font-size: 13px; font-weight: 400 }
+.tierbar .t {
+  font-family: var(--display); font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--fg-2); display: flex; align-items: center; gap: 6px;
 }
-.mastery-card.locked { opacity: 0.45 }
-.mastery-card.checked { border-color: var(--accent) }
-.mastery-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0 }
-.mastery-info { flex: 1; min-width: 0 }
-.mastery-name { font-size: 14px; font-weight: 600 }
-.mastery-desc { font-size: 12px; color: var(--fg-muted); margin-top: 2px }
-.mastery-toggle {
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 2px solid var(--border); background: transparent;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  color: transparent; font-size: 14px; transition: all 0.15s; flex-shrink: 0;
+.tierbar .t i { width: 8px; height: 8px; display: inline-block }
+.progress { height: 3px; background: var(--line); position: relative; overflow: hidden }
+.progress b { position: absolute; inset: 0 auto 0 0; background: var(--accent); transition: width .3s ease }
+@media (max-width: 520px) {
+  .tierbar { grid-template-columns: repeat(2, 1fr) }
+  .tierbar > div:nth-child(3) { border-left: 0 }
+  .tierbar > div:nth-child(n+3) { border-top: 1px solid var(--line-2) }
 }
-.mastery-toggle:hover { border-color: var(--fg-dim) }
-.mastery-toggle:disabled { cursor: not-allowed; opacity: 0.4 }
-.mastery-toggle:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
-.mastery-card.checked .mastery-toggle { background: var(--accent); border-color: var(--accent); color: #fff }
 
-/* ---- Modal ---- */
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 100; padding: 16px;
+/* Filters */
+.filters {
+  position: sticky; top: 0; z-index: 30; background: var(--bg);
+  padding: 12px 0; margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  border-bottom: 1px solid var(--line);
 }
-.modal-overlay[hidden] { display: none !important }
-.modal-box {
-  background: var(--bg-raised); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 28px;
-  max-width: 440px; width: 100%; max-height: 80vh; overflow-y: auto;
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; flex: 1 1 420px; min-width: 0 }
+.chips::-webkit-scrollbar { display: none }
+.chip {
+  flex: none; padding: 6px 11px; border: 1px solid var(--line-2); background: var(--panel);
+  font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--fg-2); cursor: pointer;
 }
-.modal-box h3 { font-size: 18px; margin-bottom: 12px }
-.modal-box p { font-size: 14px; color: var(--fg-muted); margin-bottom: 20px; line-height: 1.5 }
-.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px }
-.modal-btn {
-  padding: 10px 22px; border-radius: var(--radius-sm);
-  border: 1px solid var(--border); background: var(--bg-raised);
-  color: var(--fg); font-size: 14px; cursor: pointer;
-  font-family: 'Chakra Petch', system-ui, sans-serif; transition: all 0.15s;
+.chip:hover { color: var(--fg); border-color: var(--fg-3) }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #17140b }
+.search {
+  flex: 0 1 200px; min-width: 140px; padding: 7px 10px; background: var(--panel);
+  border: 1px solid var(--line-2); color: var(--fg); font: 14px var(--body);
 }
-.modal-btn:hover { background: var(--bg-hover) }
-.modal-btn.danger { background: #c04040; border-color: #c04040; color: #fff }
-.modal-btn.danger:hover { opacity: 0.9 }
+.search:focus { outline: none; border-color: var(--accent) }
+.hide-done { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--fg-2); cursor: pointer; user-select: none }
+.hide-done input { accent-color: var(--accent) }
 
-/* ---- Toast ---- */
+/* Matrix */
+.matrix-scroll { margin-top: 14px; overflow-x: auto; overscroll-behavior-x: contain }
+table.matrix { border-collapse: separate; border-spacing: 0; width: max-content; margin: 0 auto }
+.matrix th, .matrix td { padding: 0 }
+.matrix .namecol {
+  position: sticky; left: 0; z-index: 2; background: var(--bg);
+  width: var(--name-w); min-width: var(--name-w); max-width: var(--name-w); text-align: left;
+}
+.matrix .gap { width: 10px; min-width: 10px }
+
+tr.cls th { padding-top: 28px }
+tr.cls .namecol { vertical-align: bottom; padding-bottom: 6px }
+.cls-name { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase }
+.cls-meta { font-family: var(--mono); font-size: 11px; color: var(--fg-3) }
+.collbl {
+  font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  color: var(--fg-3); text-align: center; vertical-align: bottom; padding-bottom: 6px;
+}
+.collbl { position: relative }
+.grouplbl {
+  position: absolute; left: 1px; bottom: 22px; font-size: 10px; letter-spacing: 1.5px;
+  text-align: left; white-space: nowrap; color: var(--fg-2);
+}
+
+.gun {
+  display: flex; flex-direction: column; justify-content: center; width: 100%; height: var(--cell);
+  padding: 0 10px 0 0; border: 0; background: none; text-align: left; cursor: pointer;
+}
+.gun .nm {
+  font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.gun .ct { font-family: var(--mono); font-size: 10px; color: var(--fg-3); line-height: 1 }
+.gun:hover .nm { color: var(--accent) }
+tr.row.done .gun .nm { color: var(--gold) }
+@media (max-width: 640px) { .gun .nm { font-size: 13px } }
+
+.c {
+  width: var(--cell); height: var(--cell); margin: 1px; display: grid; place-items: center;
+  border: 1px solid var(--line-2); background: var(--panel); cursor: pointer;
+  font-family: var(--mono); font-size: 12px; color: var(--fg-2);
+  transition: background .12s, border-color .12s, color .12s;
+}
+.c:hover { border-color: var(--fg-3); color: var(--fg) }
+.c:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; position: relative; z-index: 1 }
+.c.na { color: var(--fg-3) }
+.c[aria-pressed="true"] { color: #fff; font-weight: 600 }
+.c[aria-pressed="true"][data-t="military"]   { background: var(--military);   border-color: var(--military) }
+.c[aria-pressed="true"][data-t="special"]    { background: var(--special);    border-color: var(--special) }
+.c[aria-pressed="true"][data-t="gold"]       { background: var(--gold);       border-color: var(--gold);     color: #1c1606 }
+.c[aria-pressed="true"][data-t="platinum"]   { background: var(--platinum);   border-color: var(--platinum); color: #12161b }
+.c[aria-pressed="true"][data-t="harmonic"]   { background: var(--harmonic);   border-color: var(--harmonic) }
+.c[aria-pressed="true"][data-t="divergence"] { background: var(--divergence); border-color: var(--divergence) }
+.c.locked {
+  color: var(--fg-3); border-color: var(--line); cursor: not-allowed;
+  background: repeating-linear-gradient(-45deg, var(--panel) 0 4px, var(--bg) 4px 7px);
+}
+.c.next { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent) }
+.c.pop { animation: pop .25s ease }
+@keyframes pop { 50% { transform: scale(1.12) } }
+@media (prefers-reduced-motion: reduce) { .c.pop { animation: none } .progress b { transition: none } }
+
+.empty { text-align: center; color: var(--fg-3); padding: 40px 0 }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 12px; color: var(--fg-3)
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px }
+.legend i { width: 12px; height: 12px; border: 1px solid var(--line-2); display: inline-block }
+
+/* Mastery */
+.mastery { margin-top: 48px }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line-2); padding-bottom: 8px }
+.sec-h h2 { margin: 0; font-family: var(--display); font-size: 22px; letter-spacing: 1.5px; text-transform: uppercase }
+.sec-h p { margin: 0; font-size: 13px; color: var(--fg-2) }
+.chains { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-2); border: 1px solid var(--line-2); margin-top: 14px }
+@media (max-width: 720px) { .chains { grid-template-columns: 1fr } }
+.chain { background: var(--panel); padding: 14px }
+.chain h3 { margin: 0 0 10px; font-family: var(--display); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-2) }
+.step {
+  display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; width: 100%;
+  padding: 8px 0; border: 0; border-top: 1px solid var(--line); background: none; text-align: left; cursor: pointer;
+}
+.step:first-of-type { border-top: 0 }
+.step .box {
+  width: 26px; height: 26px; border: 1px solid var(--line-2); display: grid; place-items: center;
+  font-size: 14px; color: transparent;
+}
+.step[aria-pressed="true"] .box { background: var(--accent); border-color: var(--accent); color: #17140b }
+.step .nm { font-weight: 600 }
+.step .rq { font-size: 13px; color: var(--fg-2) }
+.step.locked { cursor: not-allowed; opacity: .45 }
+.step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.tag { font-family: var(--mono); font-size: 10px; color: var(--accent); border: 1px solid currentColor; padding: 0 4px; margin-left: 6px; vertical-align: 1px }
+
+.foot { margin-top: 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--fg-3) }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--fg-3); text-decoration: underline; cursor: pointer; font-size: 12px }
+.linkbtn:hover { color: var(--divergence) }
+
+/* Detail sheet */
+dialog {
+  border: 1px solid var(--line-2); background: var(--panel); color: var(--fg);
+  padding: 0; width: min(560px, calc(100% - 24px)); max-height: 86dvh;
+}
+dialog::backdrop { background: rgba(0,0,0,.65) }
+@media (max-width: 640px) {
+  dialog { margin: auto 0 0; width: 100%; max-width: 100%; border-width: 1px 0 0 }
+}
+.sheet-h { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 18px 18px 12px; border-bottom: 1px solid var(--line-2); position: sticky; top: 0; background: var(--panel) }
+.sheet-h h2 { margin: 0; font-family: var(--display); font-size: 26px; text-transform: uppercase; letter-spacing: 1px; line-height: 1 }
+.sheet-h .sub { font-size: 12px; color: var(--fg-2); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px }
+.x { border: 1px solid var(--line-2); background: none; width: 32px; height: 32px; cursor: pointer; font-size: 18px; line-height: 1 }
+.x:hover { border-color: var(--fg-3) }
+.sheet-b { padding: 4px 18px 20px; overflow-y: auto }
+.req { display: grid; grid-template-columns: 4px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line) }
+.req:last-child { border-bottom: 0 }
+.req > i { align-self: stretch }
+.req .rn { font-weight: 600 }
+.req .rn em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--fg-3); margin-left: 6px }
+.req .rd { font-size: 13px; color: var(--fg-2); margin-top: 2px }
+.req .rd b { color: var(--fg); font-weight: 500 }
+.req .unk { color: var(--fg-3); font-style: italic }
+.note { margin-top: 12px; padding: 10px 12px; border: 1px dashed var(--line-2); font-size: 12px; color: var(--fg-2) }
+
+/* Toast */
 .toast {
-  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
-  background: var(--bg-raised); border: 1px solid var(--accent);
-  color: var(--fg); padding: 12px 24px; border-radius: var(--radius);
-  font-size: 14px; z-index: 200; opacity: 0;
-  transition: opacity 0.3s; pointer-events: none;
+  position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px);
+  background: var(--panel-2); border: 1px solid var(--line-2); border-left: 3px solid var(--accent);
+  padding: 10px 14px; font-size: 14px; display: flex; gap: 14px; align-items: center;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 100; max-width: calc(100% - 32px);
 }
-.toast.show { opacity: 1 }
-
-/* ---- Animation ---- */
-@keyframes flash-complete { 0% { background: var(--accent-subtle) } 100% { background: var(--bg-raised) } }
-.weapon-card.just-done { animation: flash-complete 0.8s ease }
-@media (prefers-reduced-motion: reduce) { .weapon-card.just-done { animation: none } }
-
-/* ---- Scrollbar on very narrow screens ---- */
-@media (max-width: 400px) {
-  .camo-tiles { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px }
-  .camo-tiles::-webkit-scrollbar { height: 3px }
-  .camo-tiles::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
-}
-
-.app-footer { height: 48px }
+.toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto }
+.toast button { background: none; border: 0; color: var(--accent); font-weight: 600; cursor: pointer; padding: 0; text-transform: uppercase; font-size: 12px; letter-spacing: 1px }
 </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><small>MODERN WARFARE 4</small><h1>Camo Tracker</h1></div>
+    <div class="overall"><div class="big" id="ov-n"></div><div class="lbl">Camos unlocked</div></div>
+  </header>
+  <div class="progress"><b id="ov-bar"></b></div>
+  <section class="tierbar" id="tierbar" aria-label="Completionist progress"></section>
 
-<div id="app"></div>
-<div id="modal-overlay" class="modal-overlay" hidden></div>
-<div id="toast" class="toast"></div>
+  <div class="filters">
+    <div class="chips" id="chips" role="group" aria-label="Weapon class"></div>
+    <input class="search" id="search" type="search" placeholder="Find a gun" aria-label="Find a gun">
+    <label class="hide-done"><input type="checkbox" id="hide-done"> Hide finished</label>
+  </div>
+
+  <div class="matrix-scroll"><table class="matrix" id="matrix"></table></div>
+  <div class="legend">
+    <span><i style="border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)"></i>Next to unlock</span>
+    <span><i style="background:repeating-linear-gradient(-45deg,var(--panel) 0 3px,var(--bg) 3px 5px)"></i>Locked</span>
+    <span>Numbers are the weapon level each military camo unlocks at. Tap a level to mark everything up to it.</span>
+    <span>Tap a gun name for its challenges.</span>
+  </div>
+
+  <section class="mastery">
+    <div class="sec-h"><h2>Mastery &amp; Prestige</h2><p id="mastery-sub"></p></div>
+    <div class="chains" id="chains"></div>
+  </section>
+
+  <footer class="foot">
+    <span>Progress is saved in this browser only.</span>
+    <button class="linkbtn" id="reset">Reset all progress</button>
+  </footer>
+</div>
+
+<dialog id="sheet" aria-labelledby="sheet-title"></dialog>
+<dialog id="confirm" aria-labelledby="confirm-title"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const CATS = [
-  { id:'ar', name:'Assault Rifles', weapons:[
-    {id:'han86',name:'Han 86'},{id:'m4',name:'M4'},{id:'hyeon_burst',name:'Hyeon Burst'},
-    {id:'kastov762',name:'Kastov 762'},{id:'patriot_xmr',name:'Patriot XMR'},
-    {id:'axion',name:'Axion'},{id:'oden',name:'Oden'},{id:'cronen_squall',name:'Cronen Squall'}
-  ]},
-  { id:'smg', name:'SMGs', weapons:[
-    {id:'iso_nightshade',name:'ISO Nightshade'},{id:'ppsh41',name:'PPSh-41'},
-    {id:'x58_nyx',name:'X-58 Nyx'},{id:'wz55_striga',name:'WZ.55 Striga'},{id:'vel46',name:'VEL 46'}
-  ]},
-  { id:'sg', name:'Shotguns', weapons:[
-    {id:'rezi12',name:'Rezi 12'},{id:'warlord',name:'Warlord'}
-  ]},
-  { id:'lmg', name:'LMGs', weapons:[
-    {id:'apoc338',name:'APOC-338'},{id:'finn_lmg',name:'FiNN LMG'},{id:'type73',name:'Type 73'}
-  ]},
-  { id:'mr', name:'Marksman Rifles', weapons:[
-    {id:'mar9',name:'MAR-9'},{id:'mosin_nagant',name:'Mosin-Nagant'},{id:'oris86',name:'Oris 8.6'}
-  ]},
-  { id:'sr', name:'Sniper Rifles', weapons:[
-    {id:'astaroth57',name:'Astaroth .57'},{id:'kg7_vulcan',name:'KG-7 Vulcan'},{id:'signal50',name:'Signal 50'}
-  ]},
-  { id:'pistol', name:'Pistols', weapons:[
-    {id:'gs50',name:'.50 GS'},{id:'krait_p68',name:'Krait P68'},
-    {id:'mojave357',name:'Mojave .357'},{id:'sang9mm',name:'SANG 9mm'}
-  ]},
-  { id:'launcher', name:'Launchers', weapons:[
-    {id:'jokr',name:'JOKR'},{id:'pila',name:'PILA'},
-    {id:'pm40_anvil',name:'PM-40 Anvil'},{id:'rpg8',name:'RPG-8'}
-  ]},
-  { id:'melee', name:'Melee', weapons:[
-    {id:'combat_knife',name:'Combat Knife'},{id:'fss_carbon',name:'FSS Carbon Edge 1095'}
-  ]}
+/* DATA:BEGIN (generated from docs/camo-data.json by scripts/build-data.py, edit the JSON instead) */
+const DATA = {"weapons":[{"id":"han86","name":"Han 86","cls":"ar","mil":[10,18,25,34,42,50,57,65],"sp":[{"name":"Smoke","mp":"Get 20 kills whilst mounted against Players","dmz":"Get 75 kills whilst mounted against Enemies"},{"name":"Stormwave","mp":"Get 50 Player kills while using a Silencer","dmz":"Get 125 Kills while using a Silencer"},{"name":"Red","mp":"Get 3 Player kills without dying 15 times","dmz":"Get 3 enemy kills without taking damage 50 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Spelling: Game Rant \"Storm Wave\", CODMunity \"Stormwave\"; CODMunity used."},{"id":"m4","name":"M4","cls":"ar","mil":[10,18,26,35,39,44,51,59],"sp":[{"name":"Myriad","mp":"Get 20 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"},{"name":"Night Ops","mp":"Get 20 Mounted Kills against Players","dmz":"Get 75 Mounted Kills against Enemies"},{"name":"Green","mp":"Get 25 Kills from behind Players","dmz":"Get 100 Kills from behind Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"hyeon_burst","name":"Hyeon Burst","cls":"ar","mil":[10,17,26,32,40,49,55,62],"sp":[{"name":"Ponderosa","mp":"Get 2 Kills without Reloading 10 times against Players","dmz":"Get 2 Kills without Reloading 30 times against Enemies"},{"name":"Red Rain","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Longshot Kills against Enemies"},{"name":"Kitty Kaos","mp":"Get 100 Player Kills while using a silencer","dmz":"Get 250 Kills against Players using a silencer"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Military Camo 8: Game Rant says level 63, CODMunity says level 62; CODMunity used. Kitty Kaos MP: Game Rant \"Get 100 Kills against Players using Full Auto\" vs CODMunity \"Get 100 Player Kills while using a silencer\"; CODMunity used. Kitty Kaos DMZ: Both sources say \"against Players using a silencer\" for the DMZ half; kept as published."},{"id":"kastov762","name":"Kastov 762","cls":"ar","mil":[10,19,27,37,45,54,61,67],"sp":[{"name":"Samnim","mp":"Get 4 kills without dying 10 times","dmz":"Get 5 Enemy Kills without taking damage 25 times"},{"name":"Yellow","mp":"Get 30 Hipfire Kills against Players","dmz":"Get 100 Enemy Hipfire Kills"},{"name":"Raster Aux","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Enemy Longshot Kills"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Samnim MP: Game Rant \"Get 3 Kills without dying 10 times\" vs CODMunity \"Get 4 kills without dying 10 times\"; CODMunity used."},{"id":"patriot_xmr","name":"Patriot XMR","cls":"ar","mil":[11,20,28,36,43,52,59,66],"sp":[{"name":"Dune Sea","mp":"Get 20 Hipfire Kills against Players","dmz":"Get 75 Hipfire Kills against Enemies"},{"name":"Disperse","mp":"Get 30 Longshot Kills against Players","dmz":"Get 100 Longshot Kills against Enemies"},{"name":"Scorch","mp":"Get 50 Player Kills using a Silencer","dmz":"Get 125 Enemy Kills using a Silencer"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"axion","name":"Axion","cls":"ar","mil":[10,19,26,34,41,48,55,62],"sp":[{"name":"Splinter Rock","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Longshot Kills against Enemies"},{"name":"Sunset Tropic","mp":"Get 25 Player Kills with Miri 40MM Grenade Launcher","dmz":"Get 75 Enemy Kills with Miri 40MM Grenade Launcher"},{"name":"Cyan","mp":"Get 2 Kills without Reloading 25 times against Players","dmz":"Get 2 Kills without Reloading 50 times against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"oden","name":"Oden","cls":"ar","mil":[12,21,25,33,39,46,53,59],"sp":[{"name":"Dark Moss","mp":"Get 25 Player Kills with Miri 40MM Grenade Launcher","dmz":"Get 75 Enemy Kills with Miri 40MM Grenade Launcher"},{"name":"Hot Rod","mp":"Get 100 Kills while ADS against Players","dmz":"Get 250 Kills while ADS against Enemies"},{"name":"Shale","mp":"Get 2 Kills without Reloading 10 times against Players","dmz":"Get 2 Kills without Reloading 30 times against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"cronen_squall","name":"Cronen Squall","cls":"ar","mil":[10,17,24,31,39,45,54,60],"sp":[{"name":"Oni","mp":"Get 20 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"},{"name":"Urban Smoke","mp":"Get 20 Mounted Kills against Players","dmz":"Get 20 Mounted Kills against Enemies"},{"name":"Optical Reverb","mp":"Get 3 Kills without Dying 15 times against Players","dmz":"Get 50 Kills while ADS against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Urban Smoke DMZ: Both sources list 20 Mounted Kills for DMZ (same as MP); kept as published. Optical Reverb DMZ: Both sources list ADS kills for the DMZ half while MP is a no-death streak; kept as published."},{"id":"iso_nightshade","name":"ISO Nightshade","cls":"smg","mil":[12,19,25,31,38,44,50,57],"sp":[{"name":"Asphalt","mp":"Get 50 Player Kills while Aiming Down Sights","dmz":"Get 125 Kills while Aiming Down Sights"},{"name":"Black Topo","mp":"Get 10 Double Kills against Players","dmz":"Get 30 Double Kills against Enemies"},{"name":"Brown","mp":"Get 3 Player Kills without Dying 15 times","dmz":"Get 3 Enemy Kills without taking damage 50 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"ppsh41","name":"PPSh-41","cls":"smg","mil":[11,17,23,31,38,44,51,57],"sp":[{"name":"Blackwell","mp":"Get 10 Double Kills against Players","dmz":"Get 30 Double Kills against Players"},{"name":"Iron","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Longshot Kills"},{"name":"Currents","mp":"Get 100 Player Kills while Aiming Down Sights","dmz":"Get 250 Kills while Aiming Down Sights"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Blackwell DMZ: Both sources say \"Double Kills against Players\" for the DMZ half; kept as published."},{"id":"x58_nyx","name":"X-58 Nyx","cls":"smg","mil":[9,15,20,25,29,35,42,47],"sp":[{"name":"Sniper Veil","mp":"Get 20 Player Kills while Moving","dmz":"Get 75 Kills while Moving"},{"name":"Carbonated","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Longshot Kills against Enemies"},{"name":"Lime","mp":"Get 40 Headshot Kills against Players","dmz":"Get 100 Longshot Kills against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Lime DMZ: Both sources list Longshot for the DMZ half while MP is Headshot; kept as published."},{"id":"wz55_striga","name":"Wz.55 Striga","cls":"smg","mil":[12,18,23,29,36,41,47,54],"sp":[{"name":"Stellation","mp":"Get 50 Player Kills using a Silencer","dmz":"Get 125 Enemy Kills using a Silencer"},{"name":"Rattlesnake","mp":"Get 20 Player Kills while Jumping","dmz":"Get 50 Enemy Kills while Jumping"},{"name":"Dark Tan","mp":"Get 40 Point Blank Kills against Players","dmz":"Get 100 Point Blank Kills"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"vel46","name":"VEL 46","cls":"smg","mil":[9,15,22,28,33,40,47,54],"sp":[{"name":"Jungle Shadow","mp":"Get 50 Player Kills while Aiming Down Sight","dmz":"Get 125 Enemy Kills while Aiming Down Sight"},{"name":"Ghast","mp":"Get 20 Player Kills while Prone","dmz":"Get 100 Enemy Kills while Prone"},{"name":"Gunmetal","mp":"Get 20 Headshots against Players","dmz":"Get 75 Headshots against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Jungle Shadow MP: Game Rant \"Get 20 Enemy Kills while Prone\" vs CODMunity \"Get 50 Player Kills while Aiming Down Sight\"; CODMunity used."},{"id":"rezi12","name":"Rezi 12","cls":"shotgun","mil":[11,18,26,30,38,42,47,54],"sp":[{"name":"Struck Oil","mp":"Get 20 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"},{"name":"Brushstroke","mp":"Get 10 Longshot Kills against Players","dmz":"Get 50 Longshot Kills against Enemies"},{"name":"White Pine","mp":"Get 40 Player Kills while Jumping","dmz":"Get 100 Enemy Kills while Jumping"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"warlord","name":"Warlord","cls":"shotgun","mil":[13,19,25,30,37,43,49,55],"sp":[{"name":"Redshift","mp":"Get 20 Player Kills while Moving","dmz":"Get 75 Enemy Kills while Moving"},{"name":"Corrupted Clay","mp":"Get 10 Double Kills against Players","dmz":"Get 30 Double Kills against Enemies"},{"name":"Magma Ire","mp":"Get 50 Player Kills while Prone","dmz":"Get 125 Enemy Kills while Prone"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"apoc338","name":"APOC-338","cls":"lmg","mil":[9,15,22,26,33,40,44,51],"sp":[{"name":"Phantom Flux","mp":"Get 20 Hipfire Kills against Players","dmz":"Get 75 Hipfire Kills against Enemies"},{"name":"Mineral","mp":"Get 20 Longshot Kills against Players","dmz":"Get 75 Longshot Kills"},{"name":"Tiger Swipe","mp":"Get 100 Player Kills while Prone","dmz":"Get 250 Enemy Kills while Prone"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"finn_lmg","name":"FiNN LMG","cls":"lmg","mil":[12,18,24,31,37,42,48,53],"sp":[{"name":"Desert Tactics","mp":"Get 20 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"},{"name":"Green Tiger","mp":"Get 2 Kills without Reloading 10 times against Players","dmz":"Get 2 Kills without Reloading 30 times against Enemies"},{"name":"Thunderhead","mp":"Get 30 Longshot Kills against Players","dmz":"Get 100 Longshot Kills against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Thunderhead MP: Game Rant lists TBD, CODMunity publishes \"Get 30 Longshot Kills against Players\"; CODMunity used."},{"id":"type73","name":"Type 73","cls":"lmg","mil":[12,19,26,34,41,48,55,61],"sp":[{"name":"Ash Pine","mp":"Get 20 Mounted Kills against Players","dmz":"Get 75 Mounted Kills against Enemies"},{"name":"Outcrop","mp":"Get 10 Double Kills against Players","dmz":"Get 30 Double Kills against Enemies"},{"name":"Foxtrail","mp":"Get 40 Headshots against Players","dmz":"Get 100 Headshots against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Special camo \"Mineral\" on Game Rant is \"Outcrop\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used. Special camo \"Tiger Swipe\" on Game Rant is \"Foxtrail\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used."},{"id":"mar9","name":"MAR-9","cls":"marksman","mil":[10,19,29,38,45,52,58,69],"sp":[{"name":"Mangrove","mp":"Get 20 Mounted Kills against Players","dmz":"Get 75 Mounted Kills against Enemies"},{"name":"Fungal Grid","mp":"Get 25 Player Kills while Crouched","dmz":"Get 75 Enemy Kills while Crouched"},{"name":"White","mp":"Get 30 Longshot Kills against Players","dmz":"Get 100 Longshot Kills against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"mosin_nagant","name":"Mosin-Nagant","cls":"marksman","mil":[10,17,25,31,38,47,55,61],"sp":[{"name":"Ice Sheer","mp":"Get 25 Headshots against Players","dmz":"Get 75 Headshots against Enemies"},{"name":"Fractal Snow","mp":"Get 2 Player Kills without Reloading 10 times","dmz":"Get 2 Enemy Kills without Dying 30 times"},{"name":"Sticker Shock","mp":"Get 100 Player Kills while Focused","dmz":"Get 250 Enemy Kills while Focused"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Fractal Snow MP: Game Rant \"Get 3 Player Kills without Dying 15 times\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used. Fractal Snow DMZ: Both sources list \"without Dying\" for the DMZ half while the MP half says \"without Reloading\"; kept as published. Sticker Shock MP: Game Rant \"Get 20 Headshots against Players\" vs CODMunity \"Get 100 Player Kills while Focused\"; CODMunity used."},{"id":"oris86","name":"Oris 8.6","cls":"marksman","mil":[11,18,27,33,42,49,55,61],"sp":[{"name":"Hibiscus","mp":"Get 10 Quickscope Kills against Players","dmz":"Get 50 Quickscope Kills against Enemies"},{"name":"Fire Topo","mp":"Get 20 Double Kills against Players","dmz":"Get 50 Double Kills against Enemies"},{"name":"Deep Space","mp":"Get 3 Kills without Dying against Players 15 times","dmz":"Get 3 Enemy Kills without taking damage 50 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"astaroth57","name":"Astaroth .57","cls":"sniper","mil":[10,15,20,26,32,37,42,48],"sp":[{"name":"Dry Brush","mp":"Get 3 Player Kills without Dying 10 times","dmz":"Get 3 Enemy Kills without taking damage 25 times"},{"name":"Backcountry","mp":"Get 20 Mounted Kills against Players","dmz":"Get 75 Mounted Kills against Enemies"},{"name":"Dread Plague","mp":"Get 2 Player Kills within 5 Seconds 20 times","dmz":"Get 2 Enemy Kills within 5 Seconds 50 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"kg7_vulcan","name":"KG-7 Vulcan","cls":"sniper","mil":[13,22,31,38,47,54,61,69],"sp":[{"name":"Treeline","mp":"Get 10 Hipfire Kills against Players","dmz":"Get 25 Enemy Hipfire Kills"},{"name":"Spidersilk","mp":"Get 20 Headshot Kills against Players","dmz":"Get 75 Headshot Kills against Enemies"},{"name":"Tension","mp":"Get 2 Player Kills without taking damage 20 times","dmz":"Get 2 Enemy Kills without taking damage 30 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Treeline DMZ: Game Rant lists TBD, CODMunity publishes \"Get 25 Enemy Hipfire Kills\"; CODMunity used. Spidersilk DMZ: Game Rant \"Get 75 Kills while Focused\" vs CODMunity \"Get 75 Headshot Kills against Enemies\"; CODMunity used."},{"id":"signal50","name":"Signal 50","cls":"sniper","mil":[10,18,28,35,43,52,57,67],"sp":[{"name":"Anaconda","mp":"Get 2 Player Kills within 5 Seconds 10 times","dmz":"Get 2 Kills within 5 Seconds 25 times"},{"name":"Ripplewave","mp":"Get 20 Quickscope Kills against Players","dmz":"Get 30 Quickscope Kills against Enemies"},{"name":"Sunburn","mp":"Get 40 Longshot Kills against Players","dmz":"Get 100 One Shot Kills"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Sunburn DMZ: Both sources list One Shot Kills for the DMZ half while MP is Longshot; kept as published. Platinum DMZ and Harmonic Break DMZ use 200 Enemy Kills on this weapon (CODMunity per-weapon, Game Rant says \"150 or 200\"); other snipers use 150."},{"id":"gs50","name":".50 GS","cls":"pistol","mil":[10,16,22,28,32,36,40,46],"sp":[{"name":"Frosted","mp":"Get 20 Headshot Kills against Players","dmz":"Get 75 Headshot Kills against Enemies"},{"name":"Splatter Ops","mp":"Get 7 Double Kills against Players","dmz":"Get 20 Double Kills against Enemies"},{"name":"Red Tiger","mp":"Get 30 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"krait_p68","name":"Krait P68","cls":"pistol","mil":[10,14,18,22,25,28,32,35],"sp":[{"name":"Off Grid","mp":"Get 15 Player Kills while Ledge Hanging","dmz":"Get 50 Enemy Kills while Ledge Hanging"},{"name":"Urban Flamingo","mp":"Get 15 Point Blank Kills against Players","dmz":"Get 50 Point Blank Kills against Enemies"},{"name":"Smokescreen","mp":"Get 50 Player Kills while using a Silencer","dmz":"Get 125 Enemy Kills while using a Silencer"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":null},{"id":"mojave357","name":"Mojave .357","cls":"pistol","mil":[9,13,18,22,26,30,35,40],"sp":[{"name":"Miami","mp":"Get 15 One Shot Kills against Players","dmz":"Get 50 One Shot Kills against Players"},{"name":"Wallpaper","mp":"Get 2 Player Kills without Reloading 10 times","dmz":"Get 2 Enemy Kills without Reloading 20 times"},{"name":"Garland","mp":"Get 30 Point Blank Kills against Players","dmz":"Get 75 Point Blank Kills against Enemies"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Miami MP: Game Rant \"Get 20 Headshot Kills against Players\" vs CODMunity \"Get 15 One Shot Kills against Players\"; CODMunity used. Miami DMZ: Both sources say \"One Shot Kills against Players\" for the DMZ half; kept as published. Wallpaper MP: Game Rant \"Get 7 Double Kills against Players\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used."},{"id":"sang9mm","name":"SANG 9mm","cls":"pistol","mil":[9,13,17,21,25,28,31,35],"sp":[{"name":"Autumn","mp":"Get 25 Player Kills while Aiming Down Sights","dmz":"Get 75 Enemy Kills while Aiming Down Sights"},{"name":"Snakeskin","mp":"Get 3 Player Kills without dying 5 times","dmz":"Get 3 Enemy Kills without taking damage 15 times"},{"name":"Space Time","mp":"Get 50 Player Kills while using Akimbo","dmz":"Get 125 Enemy Kills while using Akimbo"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Snakeskin MP: Game Rant \"Get 50 Player Kills while using Akimbo\" vs CODMunity \"Get 3 Player Kills without dying 5 times\"; CODMunity used. Space Time MP: Game Rant \"Get 3 Player Kills without dying 5 times\" vs CODMunity \"Get 50 Player Kills while using Akimbo\"; CODMunity used."},{"id":"jokr","name":"JOKR","cls":"launcher","mil":[6,11,16,21,26,31,36,41],"sp":[{"name":"Thicket","mp":"Get 5 Double Kills against Players","dmz":"Get 15 Double Kills against Enemies"},{"name":"Tectonic","mp":"Get 10 Longshot Kills against Players","dmz":"Get 25 Longshot Kills against Enemies"},{"name":"Blue Tiger","mp":"Destroy 30 Killstreaks or Vehicles","dmz":"Destroy 50 Killstreaks or Vehicles"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 50 Enemy Kills in a single match"},"notes":"Thicket MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 5 Double Kills against Players\"; CODMunity used. Tectonic MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."},{"id":"pila","name":"PILA","cls":"launcher","mil":[6,11,16,21,26,31,36,41],"sp":[{"name":"Frontier","mp":"Get 10 Direct Shot Kills against Players","dmz":"Get 25 Direct Shot Kills against Enemies"},{"name":"Sandwash","mp":"Get 5 Double Kills against Players","dmz":"Get 100 Double Kills against Enemies"},{"name":"Digital Fall","mp":"Destroy 30 Killstreaks or Vehicles","dmz":"Destroy 50 Killstreaks or Vehicles"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 50 Enemy Kills in a single match"},"notes":null},{"id":"pm40_anvil","name":"PM-40 Anvil","cls":"launcher","mil":[6,11,16,21,26,31,36,41],"sp":[{"name":"Night Snow","mp":"Get 25 Direct Shot Kills against Players","dmz":"Get 25 Direct Shot Kills against Enemies"},{"name":"Recursive","mp":"Get 2 Kills without Reloading 5 times against Players","dmz":"Get 2 Kills without Reloading 20 times against Enemies"},{"name":"Urban Standard","mp":"Get 40 Player Kills while moving","dmz":"Get 100 Enemy Kills while moving"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 50 Enemy Kills in a single match"},"notes":"Military Camo 4: Game Rant says level 26, CODMunity says level 21; CODMunity used. Night Snow MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Players\"; CODMunity used. Night Snow DMZ: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Enemies\"; CODMunity used. Recursive MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 2 Kills without Reloading 5 times against Players\"; CODMunity used. Urban Standard MP: Game Rant \"Destroy 30 Killstreaks or Vehicles\" vs CODMunity \"Get 40 Player Kills while moving\"; CODMunity used."},{"id":"rpg8","name":"RPG-8","cls":"launcher","mil":[6,11,16,21,26,31,36,41],"sp":[{"name":"Digi Bark","mp":"Get 10 Player Kills while Prone","dmz":"Get 25 Enemy Kills while Prone"},{"name":"Stone Bits","mp":"Get 10 Longshot Kills against Players","dmz":"Get 25 Longshot Kills against Enemies"},{"name":"Bubblegum Ops","mp":"Destroy 30 Killstreaks or Vehicles","dmz":"Destroy 50 Killstreaks or Vehicles"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 50 Enemy Kills in a single match"},"notes":"Digi Bark MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 10 Player Kills while Prone\"; CODMunity used. Stone Bits MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."},{"id":"fss_carbon","name":"FSS Carbon Edge 1095","cls":"melee","mil":[6,11,16,21,26,31,36,41],"sp":[{"name":"Raster Lite","mp":"Get 25 Player Kills while Jumping","dmz":"Get 100 Enemy Kills while Jumping"},{"name":"Stockpile","mp":"Get 25 Player Kills using the Heavy Melee Finisher","dmz":"Get 75 Enemy Kills using the Heavy Melee Finisher"},{"name":"Deathbed","mp":"Get 2 Kills in 5 seconds against Players 25 times","dmz":"Get 2 Kills in 5 seconds against Enemies 50 times"}],"gold":{"mp":"Get 15 Player Kills in a single match","dmz":"Get 100 Enemy Kills in a single match"},"notes":"Raster Lite MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills while Jumping\"; CODMunity used. Stockpile MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills using the Heavy Melee Finisher\"; CODMunity used. Deathbed MP: Game Rant lists TBD, CODMunity publishes \"Get 2 Kills in 5 seconds against Players 25 times\"; CODMunity used."}],"gold":null,"platinum":{"ar":{"mp":"Get 50 Headshots against Players","dmz":"Get 100 Headshots against Enemies"},"smg":{"mp":"Get 25 Player Kills from Behind","dmz":"Get 75 Enemy Kills from Behind"},"shotgun":{"mp":"Get 50 Hipfire Kills against Players","dmz":"Get 125 Hipfire Kills against Enemies"},"lmg":{"mp":"Get 3 Player Kills without dying 15 times","dmz":"Get 3 Enemy Kills without taking damage 50 times"},"marksman":{"mp":"Get 75 Player Kills while Prone","dmz":"Get 150 Enemy Kills while Prone"},"sniper":{"mp":"Get 75 Player Kills while Prone","dmz":"Get 150 Enemy Kills while Prone (Signal 50: 200)"},"launcher":{"mp":"Get 2 Player Kills without taking Damage 15 times","dmz":"Get 2 Enemy Kills without taking Damage 50 times"},"pistol":{"mp":"Get 20 Player Kills from Behind","dmz":"Get 75 Enemy Kills from Behind"},"melee":{"mp":"Get 3 Kills without Dying 15 times against Players","dmz":"Get 3 Kills without taking Damage against Enemies 50 times"}},"harmonic":{"ar":{"mp":"Get 25 Double Kills against Players","dmz":"Get 50 Double Kills against Enemies"},"smg":{"mp":"Get 50 Hipfire Kills against Players","dmz":"Get 100 Hipfire Kills against Enemies"},"shotgun":{"mp":"Get 2 Player Kills without Reloading 25 times","dmz":"Get 2 Enemy Kills without Reloading 50 times"},"lmg":{"mp":"Get 2 Player Kills without releasing the trigger 25 times","dmz":"Get 2 Enemy Kills without releasing the trigger 75 times"},"marksman":{"mp":"Get 75 One Shot Kills against Players","dmz":"Get 150 One Shot Kills against Enemies"},"sniper":{"mp":"Get 75 One Shot Kills against Players","dmz":"Get 150 One Shot Kills against Enemies (Signal 50: 200)"},"launcher":{"mp":"Get 10 Player Kills in a match 7 times","dmz":"Get 10 Enemy Kills in a match 15 times"},"pistol":{"mp":"Get 40 Hipfire Kills against Players","dmz":"Get 100 Hipfire Kills against Enemies"},"melee":{"mp":"Get 25 Player Kills from Behind","dmz":"Get 75 Enemy Kills from Behind"}},"divergence":"Complete 33 Harmonic Break Camo Challenges"};
+/* DATA:END */
+
+const CLASSES = [
+  { id: 'ar', name: 'Assault Rifles', short: 'AR' },
+  { id: 'smg', name: 'SMGs', short: 'SMG' },
+  { id: 'shotgun', name: 'Shotguns', short: 'Shotgun' },
+  { id: 'lmg', name: 'LMGs', short: 'LMG' },
+  { id: 'marksman', name: 'Marksman Rifles', short: 'Marksman' },
+  { id: 'sniper', name: 'Sniper Rifles', short: 'Sniper' },
+  { id: 'pistol', name: 'Pistols', short: 'Pistol' },
+  { id: 'launcher', name: 'Launchers', short: 'Launcher' },
+  { id: 'melee', name: 'Melee', short: 'Melee' },
 ];
 
-const MIL_LEVELS = [10,15,20,25,30,40,50,65];
-const PER_WEAPON = 15;
-const ALL_IDS = CATS.flatMap(c => c.weapons.map(w => w.id));
-const TOTAL_WEAPONS = ALL_IDS.length;
-const TOTAL_CAMOS = TOTAL_WEAPONS * PER_WEAPON;
-
-const MASTERY_ITEMS = [
-  {id:'mercurial_drift',name:'Mercurial Drift',desc:'10 kills/match x250',mode:'mp'},
-  {id:'polyatomic_reforged',name:'Polyatomic Reforged',desc:'3 kills w/o damage x300',mode:'mp'},
-  {id:'orion_reforged',name:'Orion Reforged',desc:'5 kills w/o dying x500',mode:'mp'},
-  {id:'chiral',name:'Chiral',desc:'2,500 Tier 3+ kills',mode:'dmz'},
-  {id:'ripple_tide',name:'Ripple Tide',desc:'2 LT dog tags x50 deploys',mode:'dmz'},
-  {id:'helio',name:'Helio',desc:'25,000 Legendary weapon kills',mode:'dmz'},
-  {id:'pyroclast_scatter',name:'Pyroclast Scatter',desc:'Weapon Prestige Master Lv.150',mode:'prestige'}
+// Slot layout matches the v1 save format so existing progress carries over:
+// 0-7 military, 8-10 special, 11 gold, 12 platinum, 13 harmonic break, 14 divergence.
+const SLOTS = 15, GOLD = 11, PLAT = 12, HB = 13, DIV = 14;
+const COMP = [
+  { i: GOLD, t: 'gold', name: 'Gold', glyph: 'G' },
+  { i: PLAT, t: 'platinum', name: 'Platinum', glyph: 'P' },
+  { i: HB, t: 'harmonic', name: 'Harmonic Break', glyph: 'H' },
+  { i: DIV, t: 'divergence', name: 'Divergence', glyph: 'D' },
 ];
 
-function tierOf(i){ return i<8?'military':i<11?'special':['gold','platinum','harmonic','divergence'][i-11] }
-function labelOf(i){ return i<8?'Lv.'+MIL_LEVELS[i]:i<11?['I','II','III'][i-8]:['Gold','Platinum','Harmonic Break','Divergence'][i-11] }
+const WEAPONS = DATA.weapons;
+const BY_ID = Object.fromEntries(WEAPONS.map(w => [w.id, w]));
+const N = WEAPONS.length;
 
-let state, expandedWeapons = new Set(), activeCat = 'all', searchQ = '', menuOpen = false;
+// Prerequisite counts for the first MP and DMZ mastery camos disagree between
+// sources (33 Harmonic Break vs all Divergence). We gate on Harmonic Break,
+// the looser of the two, so nobody gets locked out of a camo they really own.
+const MASTERY = [
+  { chain: 'Multiplayer', items: [
+    { id: 'mercurial_drift', name: 'Mercurial Drift', req: '10 kills in one match, 250 times', first: 'hb' },
+    { id: 'polyatomic_reforged', name: 'Polyatomic Reforged', req: '3 kills without taking damage, 300 times' },
+    { id: 'orion_reforged', name: 'Orion Reforged', req: '5 kills without dying, 500 times' },
+  ]},
+  { chain: 'DMZ', items: [
+    { id: 'chiral', name: 'Chiral', req: '2,500 Tier 3+ enemy kills', first: 'hb' },
+    { id: 'ripple_tide', name: 'Ripple Tide', req: 'Exfil 2 LT dog tags in one deployment, 50 times' },
+    { id: 'helio', name: 'Helio', req: '250,000 Legendary weapon kills on a max level Operator' },
+  ]},
+  { chain: 'Warzone', items: [
+    { id: 'parallax', name: 'Parallax', req: 'Requirements not published yet', unconfirmed: true },
+    { id: 'damascus_reforged', name: 'Damascus Reforged', req: 'Requirements not published yet', unconfirmed: true },
+    { id: 'empyros', name: 'Empyros', req: 'Requirements not published yet', unconfirmed: true },
+  ]},
+  { chain: 'Prestige', items: [
+    { id: 'pyroclast_terminus', name: 'Pyroclast Terminus', req: 'Prestige Master level (sources disagree, 38 to 76)', unconfirmed: true },
+    { id: 'pyroclast_scatter', name: 'Pyroclast Scatter', req: 'Prestige Master level 150' },
+    { id: 'pyroclast_cascade', name: 'Pyroclast Cascade', req: 'Prestige Master level 250' },
+  ]},
+];
+const MASTERY_FLAT = MASTERY.flatMap(c => c.items.map((m, k) => ({ ...m, prev: k ? c.items[k - 1].id : null })));
 
-function loadState(){
+/* ---------- state ---------- */
+const KEY = 'mw4_camo_tracker';
+let state = load();
+let view = { cls: 'all', q: '', hideDone: false };
+let undoSnap = null;
+
+function load() {
   let s = {};
-  try { const r = localStorage.getItem('mw4_camo_tracker'); if(r) s = JSON.parse(r); } catch(e){}
-  ALL_IDS.forEach(id => {
-    if(!Array.isArray(s[id]) || s[id].length !== PER_WEAPON) s[id] = new Array(PER_WEAPON).fill(false);
-  });
-  if(!s._mastery || typeof s._mastery !== 'object'){
-    s._mastery = {};
-    MASTERY_ITEMS.forEach(m => s._mastery[m.id] = false);
+  try { s = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+  for (const w of WEAPONS) {
+    if (!Array.isArray(s[w.id]) || s[w.id].length !== SLOTS) s[w.id] = Array(SLOTS).fill(false);
   }
-  MASTERY_ITEMS.forEach(m => { if(typeof s._mastery[m.id] !== 'boolean') s._mastery[m.id] = false; });
+  if (!s._mastery || typeof s._mastery !== 'object') s._mastery = {};
+  for (const m of MASTERY_FLAT) if (typeof s._mastery[m.id] !== 'boolean') s._mastery[m.id] = false;
   return s;
 }
-function saveState(){ try { localStorage.setItem('mw4_camo_tracker', JSON.stringify(state)); } catch(e){} }
-state = loadState();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
 
-function wpDone(id){ return state[id].filter(Boolean).length }
-function catGold(catId){ return CATS.find(c=>c.id===catId).weapons.filter(w=>state[w.id][11]).length }
-function catTotal(catId){ return CATS.find(c=>c.id===catId).weapons.length }
-function allDivergence(){ return ALL_IDS.every(id => state[id][14]) }
+/* ---------- rules ---------- */
+const done = (id, i) => state[id][i];
+const count = i => WEAPONS.filter(w => state[w.id][i]).length;
+const milDone = id => state[id].slice(0, 8).every(Boolean);
+const classGold = cls => WEAPONS.filter(w => w.cls === cls).every(w => state[w.id][GOLD]);
+const tierOf = i => i < 8 ? 'military' : i < 11 ? 'special' : COMP[i - 11].t;
 
-function catLabel(catId){
-  if(catId==='all') return 'All Weapons';
-  const c = CATS.find(x=>x.id===catId);
-  return c ? c.name : 'All Weapons';
+// Returns a sentence explaining why slot i is locked, or null if it can be ticked.
+function lockReason(w, i) {
+  if (i < 8) return null;
+  if (i < 11) return milDone(w.id) ? null : 'Finish all 8 military camos first';
+  if (i === GOLD) return [8, 9, 10].every(k => done(w.id, k)) ? null : 'Finish all 3 special camos first';
+  if (i === PLAT) return classGold(w.cls) ? null : `Needs Gold on every ${CLASSES.find(c => c.id === w.cls).short}`;
+  if (i === HB) return count(PLAT) >= N ? null : `Needs Platinum on all ${N} weapons (${count(PLAT)}/${N})`;
+  if (i === DIV) return count(HB) >= N ? null : `Needs Harmonic Break on all ${N} weapons (${count(HB)}/${N})`;
+}
+function masteryLock(m) {
+  if (m.prev) return state._mastery[m.prev] ? null : `Unlock ${MASTERY_FLAT.find(x => x.id === m.prev).name} first`;
+  if (m.first === 'hb') return count(HB) >= N ? null : `Needs Harmonic Break on all ${N} weapons`;
+  return null;
 }
 
-function visibleWeapons(){
-  return CATS.flatMap(c => {
-    if(activeCat!=='all' && activeCat!==c.id) return [];
-    return c.weapons.filter(w => !searchQ || w.name.toLowerCase().includes(searchQ));
-  });
-}
-
-function buildApp(){
-  const done = ALL_IDS.reduce((s,id)=>s+wpDone(id),0);
-  const pct = TOTAL_CAMOS ? Math.round(done/TOTAL_CAMOS*100) : 0;
-  const gc = ALL_IDS.filter(id=>state[id][11]).length;
-  const pc = ALL_IDS.filter(id=>state[id][12]).length;
-  const hc = ALL_IDS.filter(id=>state[id][13]).length;
-  const dc = ALL_IDS.filter(id=>state[id][14]).length;
-
-  document.getElementById('app').innerHTML = `
-    <header class="header">
-      <div>
-        <h1>MW4 Camo Tracker</h1>
-        <p class="sub">Modern Warfare 4 Mastery Camo Progress</p>
-      </div>
-      <div>
-        <button class="btn-sm btn-danger" id="btn-reset">Reset</button>
-      </div>
-    </header>
-
-    <section class="stats-row">
-      <div class="stat-card stat-main">
-        <div class="stat-val" id="s-ov">${pct}%</div>
-        <div class="stat-label">Overall</div>
-        <div class="stat-detail" id="s-od">${done} / ${TOTAL_CAMOS}</div>
-        <div class="stat-bar"><div class="stat-bar-fill" id="s-ob" style="width:${pct}%"></div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" style="color:var(--gold)" id="s-g">${gc}</div>
-        <div class="stat-label">Gold</div>
-        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" style="color:var(--platinum)" id="s-p">${pc}</div>
-        <div class="stat-label">Platinum</div>
-        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" style="color:var(--harmonic)" id="s-h">${hc}</div>
-        <div class="stat-label">Harmonic</div>
-        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-val" style="color:var(--divergence)" id="s-d">${dc}</div>
-        <div class="stat-label">Divergence</div>
-        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
-      </div>
-    </section>
-
-    <div class="search-wrap">
-      <input type="text" id="search" class="search-input" placeholder="Search weapons...">
-    </div>
-
-    <div class="cat-dropdown" id="cat-dropdown">
-      <button class="cat-select-btn" id="cat-btn">
-        <span id="cat-btn-label">${catLabel(activeCat)}</span>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="cat-menu" id="cat-menu" hidden>
-        <button class="cat-menu-item${activeCat==='all'?' active':''}" data-cat="all">
-          <span>All Weapons</span>
-          <span class="cat-menu-meta">${TOTAL_WEAPONS} weapons</span>
-        </button>
-        ${CATS.map(c => {
-          const g=catGold(c.id), t=c.weapons.length;
-          return `<button class="cat-menu-item${activeCat===c.id?' active':''}" data-cat="${c.id}">
-            <span>${c.name}</span>
-            <span class="cat-menu-meta" id="cm-${c.id}">${g}/${t} Gold</span>
-          </button>`;
-        }).join('')}
-      </div>
-    </div>
-
-    <div class="weapons-list" id="weapons-list">
-      ${buildWeaponCards()}
-    </div>
-
-    <section class="mastery-section">
-      <h2>Mastery Camos</h2>
-      <p class="mastery-req-text" id="mastery-req">Requires Divergence on all ${TOTAL_WEAPONS} weapons (${dc}/${TOTAL_WEAPONS})</p>
-      <div class="mastery-grid">
-        <div class="mastery-group">
-          <h3>Multiplayer</h3>
-          ${MASTERY_ITEMS.filter(m=>m.mode==='mp').map(m=>buildMastery(m)).join('')}
-        </div>
-        <div class="mastery-group">
-          <h3>DMZ</h3>
-          ${MASTERY_ITEMS.filter(m=>m.mode==='dmz').map(m=>buildMastery(m)).join('')}
-          <h3 style="margin-top:20px">Prestige</h3>
-          ${MASTERY_ITEMS.filter(m=>m.mode==='prestige').map(m=>buildMastery(m)).join('')}
-        </div>
-      </div>
-    </section>
-    <div class="app-footer"></div>
-  `;
-  attachEvents();
-}
-
-function buildWeaponCards(){
-  const weapons = visibleWeapons();
-  if(!weapons.length) return '<p style="text-align:center;padding:32px 0;color:var(--fg-dim)">No weapons found</p>';
-  return weapons.map(w => buildWeapon(w)).join('');
-}
-
-function buildWeapon(w){
-  const d = wpDone(w.id), full = d===PER_WEAPON;
-  const exp = expandedWeapons.has(w.id);
-  return `
-  <div class="weapon-card${full?' complete':''}${exp?' expanded':''}" id="wr-${w.id}">
-    <div class="weapon-card-header" data-weapon="${w.id}">
-      <svg class="w-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="weapon-info">
-        <div class="weapon-name">${w.name}</div>
-        <div class="weapon-meta">
-          <span class="weapon-frac" id="wf-${w.id}">${d} / ${PER_WEAPON}</span>
-          <div class="weapon-bar"><div class="weapon-bar-fill" id="wbr-${w.id}" style="width:${d/PER_WEAPON*100}%"></div></div>
-        </div>
-      </div>
-      <span class="weapon-badge" id="wb-${w.id}"${full?'':' hidden'}>COMPLETE</span>
-    </div>
-    <div class="weapon-detail"><div class="weapon-detail-inner"><div class="weapon-detail-pad">
-      <div class="camo-group">
-        <span class="camo-tier-label">Military</span>
-        <div class="camo-tiles">${[0,1,2,3,4,5,6,7].map(i=>buildTile(w.id,i)).join('')}</div>
-      </div>
-      <div class="camo-group">
-        <span class="camo-tier-label">Special</span>
-        <div class="camo-tiles">${[8,9,10].map(i=>buildTile(w.id,i)).join('')}</div>
-      </div>
-      <div class="camo-group">
-        <span class="camo-tier-label">Completionist</span>
-        <div class="camo-tiles">${[11,12,13,14].map(i=>buildTile(w.id,i)).join('')}</div>
-      </div>
-    </div></div></div>
-  </div>`;
-}
-
-function buildTile(wid, i){
-  const on = state[wid][i];
-  return `<button class="tile" id="t-${wid}-${i}" data-weapon="${wid}" data-i="${i}" data-tier="${tierOf(i)}" aria-pressed="${on}" role="checkbox"><span class="tile-check">✓</span><span>${labelOf(i)}</span></button>`;
-}
-
-function buildMastery(m){
-  const on = state._mastery[m.id];
-  const locked = !allDivergence() && m.mode !== 'prestige';
-  const dotColor = m.mode==='mp'?'var(--mastery-mp)':m.mode==='dmz'?'var(--mastery-dmz)':'var(--mastery-prestige)';
-  return `
-  <div class="mastery-card${locked?' locked':''}${on?' checked':''}" id="mc-${m.id}">
-    <div class="mastery-dot" style="background:${dotColor}"></div>
-    <div class="mastery-info">
-      <div class="mastery-name">${m.name}</div>
-      <div class="mastery-desc">${m.desc}</div>
-    </div>
-    <button class="mastery-toggle" id="mt-${m.id}" data-mastery="${m.id}"${locked?' disabled':''}>${on?'✓':''}</button>
-  </div>`;
-}
-
-// Updates
-function updateStats(){
-  const done = ALL_IDS.reduce((s,id)=>s+wpDone(id),0);
-  const pct = TOTAL_CAMOS?Math.round(done/TOTAL_CAMOS*100):0;
-  const gc=ALL_IDS.filter(id=>state[id][11]).length;
-  const pc=ALL_IDS.filter(id=>state[id][12]).length;
-  const hc=ALL_IDS.filter(id=>state[id][13]).length;
-  const dc=ALL_IDS.filter(id=>state[id][14]).length;
-  document.getElementById('s-ov').textContent=pct+'%';
-  document.getElementById('s-od').textContent=done+' / '+TOTAL_CAMOS;
-  document.getElementById('s-ob').style.width=pct+'%';
-  document.getElementById('s-g').textContent=gc;
-  document.getElementById('s-p').textContent=pc;
-  document.getElementById('s-h').textContent=hc;
-  document.getElementById('s-d').textContent=dc;
-  document.getElementById('mastery-req').textContent=`Requires Divergence on all ${TOTAL_WEAPONS} weapons (${dc}/${TOTAL_WEAPONS})`;
-  CATS.forEach(c=>{
-    const el=document.getElementById('cm-'+c.id);
-    if(el) el.textContent=catGold(c.id)+'/'+catTotal(c.id)+' Gold';
-  });
-  const unlocked=allDivergence();
-  MASTERY_ITEMS.forEach(m=>{
-    if(m.mode==='prestige') return;
-    const card=document.getElementById('mc-'+m.id);
-    const btn=document.getElementById('mt-'+m.id);
-    if(unlocked){card.classList.remove('locked');btn.disabled=false;}
-    else{card.classList.add('locked');btn.disabled=true;}
-  });
-}
-
-function updateWeapon(wid){
-  const d=wpDone(wid), full=d===PER_WEAPON;
-  const card=document.getElementById('wr-'+wid);
-  if(!card) return;
-  document.getElementById('wf-'+wid).textContent=d+' / '+PER_WEAPON;
-  document.getElementById('wbr-'+wid).style.width=(d/PER_WEAPON*100)+'%';
-  const badge=document.getElementById('wb-'+wid);
-  badge.hidden=!full;
-  if(full){card.classList.add('complete');card.classList.add('just-done');setTimeout(()=>card.classList.remove('just-done'),800);}
-  else card.classList.remove('complete');
-}
-
-// Events
-function attachEvents(){
-  const app=document.getElementById('app');
-
-  app.addEventListener('click', e => {
-    const tile=e.target.closest('.tile');
-    if(tile){
-      const wid=tile.dataset.weapon, i=+tile.dataset.i;
-      state[wid][i]=!state[wid][i];
-      tile.setAttribute('aria-pressed', state[wid][i]);
-      saveState();
-      updateWeapon(wid);
-      updateStats();
-      return;
+// Unticking a lower tier can invalidate higher ones (e.g. losing one Gold
+// drops Platinum for the whole class). Clear those until nothing changes.
+function cascade() {
+  let cleared = 0, changed = true;
+  while (changed) {
+    changed = false;
+    for (const w of WEAPONS) for (let i = 8; i < SLOTS; i++) {
+      if (state[w.id][i] && lockReason(w, i)) { state[w.id][i] = false; cleared++; changed = true; }
     }
-    const wh=e.target.closest('.weapon-card-header');
-    if(wh){
-      const wid=wh.dataset.weapon;
-      const card=document.getElementById('wr-'+wid);
-      card.classList.toggle('expanded');
-      if(card.classList.contains('expanded')) expandedWeapons.add(wid); else expandedWeapons.delete(wid);
-      return;
+    for (const m of MASTERY_FLAT) {
+      if (state._mastery[m.id] && masteryLock(m)) { state._mastery[m.id] = false; cleared++; changed = true; }
     }
-    const catBtn=e.target.closest('#cat-btn');
-    if(catBtn){
-      toggleMenu();
-      return;
+  }
+  return cleared;
+}
+
+function toggle(wid, i) {
+  const w = BY_ID[wid];
+  const why = lockReason(w, i);
+  if (why) return toast(why);
+  const snap = JSON.stringify(state);
+  const row = state[wid];
+  if (i < 8) {
+    // Military camos unlock by weapon level, so reaching one implies every lower one.
+    const top = row.slice(0, 8).lastIndexOf(true);
+    const to = i === top ? i - 1 : i;
+    for (let k = 0; k < 8; k++) row[k] = k <= to;
+  } else {
+    row[i] = !row[i];
+  }
+  afterChange(snap, `#c-${wid}-${i}`);
+}
+
+function toggleMastery(id) {
+  const m = MASTERY_FLAT.find(x => x.id === id);
+  const why = masteryLock(m);
+  if (why) return toast(why);
+  const snap = JSON.stringify(state);
+  state._mastery[id] = !state._mastery[id];
+  afterChange(snap, `#m-${id}`);
+}
+
+function afterChange(snap, focusSel) {
+  const cleared = cascade();
+  save();
+  render(focusSel);
+  if (cleared) {
+    undoSnap = snap;
+    toast(`Also cleared ${cleared} camo${cleared > 1 ? 's' : ''} that depended on it`, 'Undo');
+  }
+}
+
+/* ---------- render ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function render(focusSel) {
+  renderStats();
+  renderChips();
+  renderMatrix();
+  renderMastery();
+  if (focusSel) {
+    const el = $(focusSel);
+    if (el) { el.focus({ preventScroll: true }); el.classList.add('pop'); }
+  }
+}
+
+function renderStats() {
+  const total = N * SLOTS;
+  const got = WEAPONS.reduce((s, w) => s + state[w.id].filter(Boolean).length, 0);
+  $('#ov-n').innerHTML = `${got}<span> / ${total}</span>`;
+  $('#ov-bar').style.width = (got / total * 100) + '%';
+  $('#tierbar').innerHTML = COMP.map(c =>
+    `<div><div class="t"><i style="background:var(--${c.t})"></i>${c.name}</div><div class="n">${count(c.i)}<span> / ${N}</span></div></div>`
+  ).join('');
+}
+
+function renderChips() {
+  const chip = (id, label) =>
+    `<button class="chip" data-cls="${id}" aria-pressed="${view.cls === id}">${label}</button>`;
+  $('#chips').innerHTML = chip('all', 'All') + CLASSES.map(c => chip(c.id, c.short)).join('');
+}
+
+function nextSlot(w) {
+  for (let i = 0; i < SLOTS; i++) if (!state[w.id][i]) return lockReason(w, i) ? -1 : i;
+  return -1;
+}
+
+function renderMatrix() {
+  const q = view.q.trim().toLowerCase();
+  let html = '';
+  for (const c of CLASSES) {
+    if (view.cls !== 'all' && view.cls !== c.id) continue;
+    const guns = WEAPONS.filter(w => w.cls === c.id)
+      .filter(w => !q || w.name.toLowerCase().includes(q))
+      .filter(w => !view.hideDone || !state[w.id].every(Boolean));
+    if (!guns.length) continue;
+    const all = WEAPONS.filter(w => w.cls === c.id);
+    const gold = all.filter(w => state[w.id][GOLD]).length;
+    html += `<tr class="cls">
+      <th class="namecol" scope="rowgroup"><div class="cls-name">${c.name}</div><div class="cls-meta">${gold}/${all.length} gold</div></th>
+      ${[1,2,3,4,5,6,7,8].map(n => `<th class="collbl" scope="col">${n === 1 ? '<span class="grouplbl">MILITARY &middot; UNLOCKS AT WEAPON LEVEL</span>' : ''}M${n}</th>`).join('')}
+      <th class="gap"></th>
+      ${[1,2,3].map(n => `<th class="collbl" scope="col">${n === 1 ? '<span class="grouplbl">SPECIAL</span>' : ''}S${n}</th>`).join('')}
+      <th class="gap"></th>
+      ${COMP.map((x, k) => `<th class="collbl" scope="col" title="${x.name}">${k === 0 ? '<span class="grouplbl">COMPLETIONIST</span>' : ''}${x.glyph}</th>`).join('')}
+    </tr>`;
+    for (const w of guns) html += rowHtml(w);
+  }
+  $('#matrix').innerHTML = html || '<tr><td class="empty">No guns match that filter.</td></tr>';
+}
+
+function rowHtml(w) {
+  const row = state[w.id];
+  const got = row.filter(Boolean).length;
+  const nx = nextSlot(w);
+  const cell = i => {
+    const on = row[i];
+    const why = on ? null : lockReason(w, i);
+    let label, aria;
+    if (i < 8) {
+      const lv = w.mil[i];
+      label = lv ?? '?';
+      aria = `Military camo ${i + 1}, unlocks at weapon level ${lv ?? 'unknown'}`;
+    } else if (i < 11) {
+      const sp = w.sp[i - 8];
+      label = ['I', 'II', 'III'][i - 8];
+      aria = `Special ${i - 7}${sp && sp.name ? ', ' + sp.name : ''}`;
+    } else {
+      label = COMP[i - 11].glyph;
+      aria = COMP[i - 11].name;
     }
-    const catItem=e.target.closest('.cat-menu-item');
-    if(catItem){
-      activeCat=catItem.dataset.cat;
-      closeMenu();
-      document.getElementById('cat-btn-label').textContent=catLabel(activeCat);
-      document.querySelectorAll('.cat-menu-item').forEach(el=>el.classList.toggle('active',el.dataset.cat===activeCat));
-      rebuildWeapons();
-      return;
-    }
-    const mt=e.target.closest('.mastery-toggle');
-    if(mt && !mt.disabled){
-      const mid=mt.dataset.mastery;
-      state._mastery[mid]=!state._mastery[mid];
-      const card=document.getElementById('mc-'+mid);
-      card.classList.toggle('checked', state._mastery[mid]);
-      mt.textContent=state._mastery[mid]?'✓':'';
-      saveState();
-      return;
-    }
-  });
-
-  document.addEventListener('click', e => {
-    if(menuOpen && !e.target.closest('#cat-dropdown')) closeMenu();
-  });
-
-  document.getElementById('search').addEventListener('input', e => {
-    searchQ=e.target.value.toLowerCase();
-    rebuildWeapons();
-  });
-
-  document.getElementById('btn-reset').addEventListener('click', showReset);
+    const cls = ['c', why ? 'locked' : '', i === nx ? 'next' : '', i < 8 && w.mil[i] == null ? 'na' : ''].join(' ');
+    return `<td><button class="${cls}" id="c-${w.id}-${i}" data-w="${w.id}" data-i="${i}" data-t="${tierOf(i)}"
+      aria-pressed="${on}" aria-label="${esc(w.name)}: ${esc(aria)}${why ? ' (locked)' : ''}" title="${esc(why || aria)}">${label}</button></td>`;
+  };
+  return `<tr class="row${got === SLOTS ? ' done' : ''}">
+    <th class="namecol" scope="row"><button class="gun" data-detail="${w.id}"><span class="nm">${esc(w.name)}</span><span class="ct">${got}/${SLOTS}</span></button></th>
+    ${[0,1,2,3,4,5,6,7].map(cell).join('')}<td class="gap"></td>
+    ${[8,9,10].map(cell).join('')}<td class="gap"></td>
+    ${[11,12,13,14].map(cell).join('')}
+  </tr>`;
 }
 
-function toggleMenu(){
-  menuOpen=!menuOpen;
-  document.getElementById('cat-dropdown').classList.toggle('open', menuOpen);
-  document.getElementById('cat-menu').hidden=!menuOpen;
-}
-function closeMenu(){
-  menuOpen=false;
-  document.getElementById('cat-dropdown').classList.remove('open');
-  document.getElementById('cat-menu').hidden=true;
-}
-
-function rebuildWeapons(){
-  document.getElementById('weapons-list').innerHTML=buildWeaponCards();
-}
-
-// Modal / Toast
-function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2200);
-}
-function showModal(html){
-  const ov=document.getElementById('modal-overlay');
-  ov.innerHTML=`<div class="modal-box">${html}</div>`;
-  ov.hidden=false;
-  ov.addEventListener('click', e=>{if(e.target===ov) hideModal();},{once:true});
-}
-function hideModal(){ document.getElementById('modal-overlay').hidden=true; }
-
-function showReset(){
-  showModal(`<h3>Reset All Progress</h3><p>This will clear all your camo tracking data. This cannot be undone.</p><div class="modal-actions"><button class="modal-btn" onclick="hideModal()">Cancel</button><button class="modal-btn danger" id="do-reset">Reset Everything</button></div>`);
-  setTimeout(()=>{
-    document.getElementById('do-reset').addEventListener('click',()=>{
-      ALL_IDS.forEach(id=>state[id]=new Array(PER_WEAPON).fill(false));
-      MASTERY_ITEMS.forEach(m=>state._mastery[m.id]=false);
-      saveState();expandedWeapons.clear();activeCat='all';searchQ='';menuOpen=false;
-      hideModal();buildApp();toast('Progress reset');
-    });
-  },50);
+function renderMastery() {
+  const hb = count(HB);
+  $('#mastery-sub').textContent = `Harmonic Break ${hb}/${N}`;
+  $('#chains').innerHTML = MASTERY.map(c => `<div class="chain"><h3>${c.chain}</h3>${
+    c.items.map(m => {
+      const mm = MASTERY_FLAT.find(x => x.id === m.id);
+      const on = state._mastery[m.id];
+      const why = on ? null : masteryLock(mm);
+      return `<button class="step${why ? ' locked' : ''}" id="m-${m.id}" data-m="${m.id}" aria-pressed="${on}" title="${esc(why || '')}">
+        <span class="box">✓</span>
+        <span><span class="nm">${m.name}</span>${m.unconfirmed ? '<span class="tag">UNCONFIRMED</span>' : ''}
+        <span class="rq" style="display:block">${esc(why || m.req)}</span></span>
+      </button>`;
+    }).join('')
+  }</div>`).join('');
 }
 
-buildApp();
+/* ---------- detail sheet ---------- */
+function challenge(c) {
+  if (!c || (!c.mp && !c.dmz)) return '<span class="unk">Not published yet</span>';
+  return [c.mp && `<b>MP</b> ${esc(c.mp)}`, c.dmz && `<b>DMZ</b> ${esc(c.dmz)}`].filter(Boolean).join(' &middot; ');
+}
+function openDetail(wid) {
+  const w = BY_ID[wid];
+  const cls = CLASSES.find(c => c.id === w.cls);
+  const lv = w.mil.map((l, k) => `M${k + 1} ${l ?? '?'}`).join(' &middot; ');
+  const items = [
+    { t: 'military', n: 'Military', em: '8 camos', d: `Unlock by weapon level: ${lv}` },
+    ...w.sp.map((s, k) => ({ t: 'special', n: (s && s.name) || `Special ${k + 1}`, em: `S${k + 1}`, d: challenge(s) })),
+    { t: 'gold', n: 'Gold', em: 'after all specials', d: challenge(w.gold || DATA.gold) },
+    { t: 'platinum', n: 'Platinum', em: `after Gold on every ${cls.short}`, d: challenge(DATA.platinum[w.cls]) },
+    { t: 'harmonic', n: 'Harmonic Break', em: `after ${N} Platinum`, d: challenge(DATA.harmonic[w.cls]) },
+    { t: 'divergence', n: 'Divergence', em: `after ${N} Harmonic Break`, d: DATA.divergence ? esc(DATA.divergence) : '<span class="unk">Not published yet</span>' },
+  ];
+  const sheet = $('#sheet');
+  sheet.innerHTML = `<div class="sheet-h"><div><h2 id="sheet-title">${esc(w.name)}</h2><div class="sub">${cls.name}</div></div>
+    <button class="x" data-close aria-label="Close">&times;</button></div>
+    <div class="sheet-b">${items.map(r =>
+      `<div class="req"><i style="background:var(--${r.t})"></i><div><div class="rn">${esc(r.n)}<em>${esc(r.em)}</em></div><div class="rd">${r.d}</div></div></div>`
+    ).join('')}${w.notes ? `<div class="note">Source note: ${esc(w.notes)}</div>` : ''}</div>`;
+  sheet.showModal();
+}
+
+/* ---------- toast & confirm ---------- */
+let toastTimer;
+function toast(msg, action) {
+  const t = $('#toast');
+  t.innerHTML = `<span>${esc(msg)}</span>${action ? `<button data-undo>${action}</button>` : ''}`;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.classList.remove('show'); undoSnap = null; }, action ? 5000 : 2200);
+}
+
+function confirmReset() {
+  const d = $('#confirm');
+  d.innerHTML = `<div class="sheet-h"><div><h2 id="confirm-title">Reset everything?</h2><div class="sub">Clears every camo and mastery tick in this browser</div></div></div>
+    <div class="sheet-b" style="display:flex;gap:10px;justify-content:flex-end;padding-top:16px">
+      <button class="chip" data-close>Cancel</button>
+      <button class="chip" data-do-reset style="background:var(--divergence);border-color:var(--divergence);color:#fff">Reset</button>
+    </div>`;
+  d.showModal();
+}
+
+/* ---------- events (bound once) ---------- */
+document.addEventListener('click', e => {
+  const t = e.target;
+  const cell = t.closest('.c');
+  if (cell) return toggle(cell.dataset.w, +cell.dataset.i);
+  const gun = t.closest('[data-detail]');
+  if (gun) return openDetail(gun.dataset.detail);
+  const step = t.closest('.step');
+  if (step) return toggleMastery(step.dataset.m);
+  const chip = t.closest('.chip[data-cls]');
+  if (chip) { view.cls = chip.dataset.cls; renderChips(); renderMatrix(); return; }
+  if (t.closest('[data-undo]') && undoSnap) {
+    state = JSON.parse(undoSnap); undoSnap = null; save(); render(); toast('Restored'); return;
+  }
+  if (t.closest('[data-close]')) return t.closest('dialog').close();
+  if (t.closest('[data-do-reset]')) {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    state = load(); save();
+    $('#confirm').close(); render(); toast('Progress reset'); return;
+  }
+  if (t.closest('#reset')) return confirmReset();
+  // Click on the dialog backdrop lands on the dialog element itself.
+  if (t.tagName === 'DIALOG') t.close();
+});
+$('#search').addEventListener('input', e => { view.q = e.target.value; renderMatrix(); });
+$('#hide-done').addEventListener('change', e => { view.hideDone = e.target.checked; renderMatrix(); });
+
+render();
 </script>
+</body>
+</html>

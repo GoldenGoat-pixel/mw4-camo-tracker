@@ -1,0 +1,1410 @@
+{
+  "sources": [
+    "https://gamerant.com/call-of-duty-cod-modern-warfare-4-mw4-all-mastery-camo-challenges-checklist/",
+    "https://codmunity.gg/camo-tracker/mw4",
+    "https://game8.co/games/Call-of-Duty-Modern-Warfare-4/archives/630963"
+  ],
+  "notes": "Military camo names are only published as \"Military Camo 1\" to \"Military Camo 8\", so military_names is null. Special camo unlock levels are not published by either source, so level is null. Where Game Rant and CODMunity disagree or Game Rant lists TBD, the CODMunity value is used and both are recorded in the weapon notes. Gold, Platinum and Harmonic Break are published per class by Game Rant and per weapon by CODMunity; the two agree except where noted.",
+  "weapons": [
+    {
+      "name": "Han 86",
+      "class": "ar",
+      "military": [
+        10,
+        18,
+        25,
+        34,
+        42,
+        50,
+        57,
+        65
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Smoke",
+          "level": null,
+          "mp": "Get 20 kills whilst mounted against Players",
+          "dmz": "Get 75 kills whilst mounted against Enemies"
+        },
+        {
+          "name": "Stormwave",
+          "level": null,
+          "mp": "Get 50 Player kills while using a Silencer",
+          "dmz": "Get 125 Kills while using a Silencer"
+        },
+        {
+          "name": "Red",
+          "level": null,
+          "mp": "Get 3 Player kills without dying 15 times",
+          "dmz": "Get 3 enemy kills without taking damage 50 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Spelling: Game Rant \"Storm Wave\", CODMunity \"Stormwave\"; CODMunity used."
+    },
+    {
+      "name": "M4",
+      "class": "ar",
+      "military": [
+        10,
+        18,
+        26,
+        35,
+        39,
+        44,
+        51,
+        59
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Myriad",
+          "level": null,
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Night Ops",
+          "level": null,
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Green",
+          "level": null,
+          "mp": "Get 25 Kills from behind Players",
+          "dmz": "Get 100 Kills from behind Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Hyeon Burst",
+      "class": "ar",
+      "military": [
+        10,
+        17,
+        26,
+        32,
+        40,
+        49,
+        55,
+        62
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Ponderosa",
+          "level": null,
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        },
+        {
+          "name": "Red Rain",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Kitty Kaos",
+          "level": null,
+          "mp": "Get 100 Player Kills while using a silencer",
+          "dmz": "Get 250 Kills against Players using a silencer"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Military Camo 8: Game Rant says level 63, CODMunity says level 62; CODMunity used. Kitty Kaos MP: Game Rant \"Get 100 Kills against Players using Full Auto\" vs CODMunity \"Get 100 Player Kills while using a silencer\"; CODMunity used. Kitty Kaos DMZ: Both sources say \"against Players using a silencer\" for the DMZ half; kept as published."
+    },
+    {
+      "name": "Kastov 762",
+      "class": "ar",
+      "military": [
+        10,
+        19,
+        27,
+        37,
+        45,
+        54,
+        61,
+        67
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Samnim",
+          "level": null,
+          "mp": "Get 4 kills without dying 10 times",
+          "dmz": "Get 5 Enemy Kills without taking damage 25 times"
+        },
+        {
+          "name": "Yellow",
+          "level": null,
+          "mp": "Get 30 Hipfire Kills against Players",
+          "dmz": "Get 100 Enemy Hipfire Kills"
+        },
+        {
+          "name": "Raster Aux",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Enemy Longshot Kills"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Samnim MP: Game Rant \"Get 3 Kills without dying 10 times\" vs CODMunity \"Get 4 kills without dying 10 times\"; CODMunity used."
+    },
+    {
+      "name": "Patriot XMR",
+      "class": "ar",
+      "military": [
+        11,
+        20,
+        28,
+        36,
+        43,
+        52,
+        59,
+        66
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Dune Sea",
+          "level": null,
+          "mp": "Get 20 Hipfire Kills against Players",
+          "dmz": "Get 75 Hipfire Kills against Enemies"
+        },
+        {
+          "name": "Disperse",
+          "level": null,
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Scorch",
+          "level": null,
+          "mp": "Get 50 Player Kills using a Silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Axion",
+      "class": "ar",
+      "military": [
+        10,
+        19,
+        26,
+        34,
+        41,
+        48,
+        55,
+        62
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Splinter Rock",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Sunset Tropic",
+          "level": null,
+          "mp": "Get 25 Player Kills with Miri 40MM Grenade Launcher",
+          "dmz": "Get 75 Enemy Kills with Miri 40MM Grenade Launcher"
+        },
+        {
+          "name": "Cyan",
+          "level": null,
+          "mp": "Get 2 Kills without Reloading 25 times against Players",
+          "dmz": "Get 2 Kills without Reloading 50 times against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Oden",
+      "class": "ar",
+      "military": [
+        12,
+        21,
+        25,
+        33,
+        39,
+        46,
+        53,
+        59
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Dark Moss",
+          "level": null,
+          "mp": "Get 25 Player Kills with Miri 40MM Grenade Launcher",
+          "dmz": "Get 75 Enemy Kills with Miri 40MM Grenade Launcher"
+        },
+        {
+          "name": "Hot Rod",
+          "level": null,
+          "mp": "Get 100 Kills while ADS against Players",
+          "dmz": "Get 250 Kills while ADS against Enemies"
+        },
+        {
+          "name": "Shale",
+          "level": null,
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Cronen Squall",
+      "class": "ar",
+      "military": [
+        10,
+        17,
+        24,
+        31,
+        39,
+        45,
+        54,
+        60
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Oni",
+          "level": null,
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Urban Smoke",
+          "level": null,
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 20 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Optical Reverb",
+          "level": null,
+          "mp": "Get 3 Kills without Dying 15 times against Players",
+          "dmz": "Get 50 Kills while ADS against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Urban Smoke DMZ: Both sources list 20 Mounted Kills for DMZ (same as MP); kept as published. Optical Reverb DMZ: Both sources list ADS kills for the DMZ half while MP is a no-death streak; kept as published."
+    },
+    {
+      "name": "ISO Nightshade",
+      "class": "smg",
+      "military": [
+        12,
+        19,
+        25,
+        31,
+        38,
+        44,
+        50,
+        57
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Asphalt",
+          "level": null,
+          "mp": "Get 50 Player Kills while Aiming Down Sights",
+          "dmz": "Get 125 Kills while Aiming Down Sights"
+        },
+        {
+          "name": "Black Topo",
+          "level": null,
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        },
+        {
+          "name": "Brown",
+          "level": null,
+          "mp": "Get 3 Player Kills without Dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "PPSh-41",
+      "class": "smg",
+      "military": [
+        11,
+        17,
+        23,
+        31,
+        38,
+        44,
+        51,
+        57
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Blackwell",
+          "level": null,
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Players"
+        },
+        {
+          "name": "Iron",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills"
+        },
+        {
+          "name": "Currents",
+          "level": null,
+          "mp": "Get 100 Player Kills while Aiming Down Sights",
+          "dmz": "Get 250 Kills while Aiming Down Sights"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Blackwell DMZ: Both sources say \"Double Kills against Players\" for the DMZ half; kept as published."
+    },
+    {
+      "name": "X-58 Nyx",
+      "class": "smg",
+      "military": [
+        9,
+        15,
+        20,
+        25,
+        29,
+        35,
+        42,
+        47
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Sniper Veil",
+          "level": null,
+          "mp": "Get 20 Player Kills while Moving",
+          "dmz": "Get 75 Kills while Moving"
+        },
+        {
+          "name": "Carbonated",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Lime",
+          "level": null,
+          "mp": "Get 40 Headshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Lime DMZ: Both sources list Longshot for the DMZ half while MP is Headshot; kept as published."
+    },
+    {
+      "name": "Wz.55 Striga",
+      "class": "smg",
+      "military": [
+        12,
+        18,
+        23,
+        29,
+        36,
+        41,
+        47,
+        54
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Stellation",
+          "level": null,
+          "mp": "Get 50 Player Kills using a Silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer"
+        },
+        {
+          "name": "Rattlesnake",
+          "level": null,
+          "mp": "Get 20 Player Kills while Jumping",
+          "dmz": "Get 50 Enemy Kills while Jumping"
+        },
+        {
+          "name": "Dark Tan",
+          "level": null,
+          "mp": "Get 40 Point Blank Kills against Players",
+          "dmz": "Get 100 Point Blank Kills"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "VEL 46",
+      "class": "smg",
+      "military": [
+        9,
+        15,
+        22,
+        28,
+        33,
+        40,
+        47,
+        54
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Jungle Shadow",
+          "level": null,
+          "mp": "Get 50 Player Kills while Aiming Down Sight",
+          "dmz": "Get 125 Enemy Kills while Aiming Down Sight"
+        },
+        {
+          "name": "Ghast",
+          "level": null,
+          "mp": "Get 20 Player Kills while Prone",
+          "dmz": "Get 100 Enemy Kills while Prone"
+        },
+        {
+          "name": "Gunmetal",
+          "level": null,
+          "mp": "Get 20 Headshots against Players",
+          "dmz": "Get 75 Headshots against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Jungle Shadow MP: Game Rant \"Get 20 Enemy Kills while Prone\" vs CODMunity \"Get 50 Player Kills while Aiming Down Sight\"; CODMunity used."
+    },
+    {
+      "name": "Rezi 12",
+      "class": "shotgun",
+      "military": [
+        11,
+        18,
+        26,
+        30,
+        38,
+        42,
+        47,
+        54
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Struck Oil",
+          "level": null,
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Brushstroke",
+          "level": null,
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 50 Longshot Kills against Enemies"
+        },
+        {
+          "name": "White Pine",
+          "level": null,
+          "mp": "Get 40 Player Kills while Jumping",
+          "dmz": "Get 100 Enemy Kills while Jumping"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Warlord",
+      "class": "shotgun",
+      "military": [
+        13,
+        19,
+        25,
+        30,
+        37,
+        43,
+        49,
+        55
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Redshift",
+          "level": null,
+          "mp": "Get 20 Player Kills while Moving",
+          "dmz": "Get 75 Enemy Kills while Moving"
+        },
+        {
+          "name": "Corrupted Clay",
+          "level": null,
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        },
+        {
+          "name": "Magma Ire",
+          "level": null,
+          "mp": "Get 50 Player Kills while Prone",
+          "dmz": "Get 125 Enemy Kills while Prone"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "APOC-338",
+      "class": "lmg",
+      "military": [
+        9,
+        15,
+        22,
+        26,
+        33,
+        40,
+        44,
+        51
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Phantom Flux",
+          "level": null,
+          "mp": "Get 20 Hipfire Kills against Players",
+          "dmz": "Get 75 Hipfire Kills against Enemies"
+        },
+        {
+          "name": "Mineral",
+          "level": null,
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills"
+        },
+        {
+          "name": "Tiger Swipe",
+          "level": null,
+          "mp": "Get 100 Player Kills while Prone",
+          "dmz": "Get 250 Enemy Kills while Prone"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "FiNN LMG",
+      "class": "lmg",
+      "military": [
+        12,
+        18,
+        24,
+        31,
+        37,
+        42,
+        48,
+        53
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Desert Tactics",
+          "level": null,
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Green Tiger",
+          "level": null,
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        },
+        {
+          "name": "Thunderhead",
+          "level": null,
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Thunderhead MP: Game Rant lists TBD, CODMunity publishes \"Get 30 Longshot Kills against Players\"; CODMunity used."
+    },
+    {
+      "name": "Type 73",
+      "class": "lmg",
+      "military": [
+        12,
+        19,
+        26,
+        34,
+        41,
+        48,
+        55,
+        61
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Ash Pine",
+          "level": null,
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Outcrop",
+          "level": null,
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        },
+        {
+          "name": "Foxtrail",
+          "level": null,
+          "mp": "Get 40 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Special camo \"Mineral\" on Game Rant is \"Outcrop\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used. Special camo \"Tiger Swipe\" on Game Rant is \"Foxtrail\" on CODMunity (same challenge text; Game Rant looks copy-pasted from APOC-338); CODMunity name used."
+    },
+    {
+      "name": "MAR-9",
+      "class": "marksman",
+      "military": [
+        10,
+        19,
+        29,
+        38,
+        45,
+        52,
+        58,
+        69
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Mangrove",
+          "level": null,
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Fungal Grid",
+          "level": null,
+          "mp": "Get 25 Player Kills while Crouched",
+          "dmz": "Get 75 Enemy Kills while Crouched"
+        },
+        {
+          "name": "White",
+          "level": null,
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Mosin-Nagant",
+      "class": "marksman",
+      "military": [
+        10,
+        17,
+        25,
+        31,
+        38,
+        47,
+        55,
+        61
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Ice Sheer",
+          "level": null,
+          "mp": "Get 25 Headshots against Players",
+          "dmz": "Get 75 Headshots against Enemies"
+        },
+        {
+          "name": "Fractal Snow",
+          "level": null,
+          "mp": "Get 2 Player Kills without Reloading 10 times",
+          "dmz": "Get 2 Enemy Kills without Dying 30 times"
+        },
+        {
+          "name": "Sticker Shock",
+          "level": null,
+          "mp": "Get 100 Player Kills while Focused",
+          "dmz": "Get 250 Enemy Kills while Focused"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Fractal Snow MP: Game Rant \"Get 3 Player Kills without Dying 15 times\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used. Fractal Snow DMZ: Both sources list \"without Dying\" for the DMZ half while the MP half says \"without Reloading\"; kept as published. Sticker Shock MP: Game Rant \"Get 20 Headshots against Players\" vs CODMunity \"Get 100 Player Kills while Focused\"; CODMunity used."
+    },
+    {
+      "name": "Oris 8.6",
+      "class": "marksman",
+      "military": [
+        11,
+        18,
+        27,
+        33,
+        42,
+        49,
+        55,
+        61
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Hibiscus",
+          "level": null,
+          "mp": "Get 10 Quickscope Kills against Players",
+          "dmz": "Get 50 Quickscope Kills against Enemies"
+        },
+        {
+          "name": "Fire Topo",
+          "level": null,
+          "mp": "Get 20 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        },
+        {
+          "name": "Deep Space",
+          "level": null,
+          "mp": "Get 3 Kills without Dying against Players 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Astaroth .57",
+      "class": "sniper",
+      "military": [
+        10,
+        15,
+        20,
+        26,
+        32,
+        37,
+        42,
+        48
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Dry Brush",
+          "level": null,
+          "mp": "Get 3 Player Kills without Dying 10 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 25 times"
+        },
+        {
+          "name": "Backcountry",
+          "level": null,
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Dread Plague",
+          "level": null,
+          "mp": "Get 2 Player Kills within 5 Seconds 20 times",
+          "dmz": "Get 2 Enemy Kills within 5 Seconds 50 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "KG-7 Vulcan",
+      "class": "sniper",
+      "military": [
+        13,
+        22,
+        31,
+        38,
+        47,
+        54,
+        61,
+        69
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Treeline",
+          "level": null,
+          "mp": "Get 10 Hipfire Kills against Players",
+          "dmz": "Get 25 Enemy Hipfire Kills"
+        },
+        {
+          "name": "Spidersilk",
+          "level": null,
+          "mp": "Get 20 Headshot Kills against Players",
+          "dmz": "Get 75 Headshot Kills against Enemies"
+        },
+        {
+          "name": "Tension",
+          "level": null,
+          "mp": "Get 2 Player Kills without taking damage 20 times",
+          "dmz": "Get 2 Enemy Kills without taking damage 30 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Treeline DMZ: Game Rant lists TBD, CODMunity publishes \"Get 25 Enemy Hipfire Kills\"; CODMunity used. Spidersilk DMZ: Game Rant \"Get 75 Kills while Focused\" vs CODMunity \"Get 75 Headshot Kills against Enemies\"; CODMunity used."
+    },
+    {
+      "name": "Signal 50",
+      "class": "sniper",
+      "military": [
+        10,
+        18,
+        28,
+        35,
+        43,
+        52,
+        57,
+        67
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Anaconda",
+          "level": null,
+          "mp": "Get 2 Player Kills within 5 Seconds 10 times",
+          "dmz": "Get 2 Kills within 5 Seconds 25 times"
+        },
+        {
+          "name": "Ripplewave",
+          "level": null,
+          "mp": "Get 20 Quickscope Kills against Players",
+          "dmz": "Get 30 Quickscope Kills against Enemies"
+        },
+        {
+          "name": "Sunburn",
+          "level": null,
+          "mp": "Get 40 Longshot Kills against Players",
+          "dmz": "Get 100 One Shot Kills"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Sunburn DMZ: Both sources list One Shot Kills for the DMZ half while MP is Longshot; kept as published. Platinum DMZ and Harmonic Break DMZ use 200 Enemy Kills on this weapon (CODMunity per-weapon, Game Rant says \"150 or 200\"); other snipers use 150."
+    },
+    {
+      "name": ".50 GS",
+      "class": "pistol",
+      "military": [
+        10,
+        16,
+        22,
+        28,
+        32,
+        36,
+        40,
+        46
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Frosted",
+          "level": null,
+          "mp": "Get 20 Headshot Kills against Players",
+          "dmz": "Get 75 Headshot Kills against Enemies"
+        },
+        {
+          "name": "Splatter Ops",
+          "level": null,
+          "mp": "Get 7 Double Kills against Players",
+          "dmz": "Get 20 Double Kills against Enemies"
+        },
+        {
+          "name": "Red Tiger",
+          "level": null,
+          "mp": "Get 30 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Krait P68",
+      "class": "pistol",
+      "military": [
+        10,
+        14,
+        18,
+        22,
+        25,
+        28,
+        32,
+        35
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Off Grid",
+          "level": null,
+          "mp": "Get 15 Player Kills while Ledge Hanging",
+          "dmz": "Get 50 Enemy Kills while Ledge Hanging"
+        },
+        {
+          "name": "Urban Flamingo",
+          "level": null,
+          "mp": "Get 15 Point Blank Kills against Players",
+          "dmz": "Get 50 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Smokescreen",
+          "level": null,
+          "mp": "Get 50 Player Kills while using a Silencer",
+          "dmz": "Get 125 Enemy Kills while using a Silencer"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "Mojave .357",
+      "class": "pistol",
+      "military": [
+        9,
+        13,
+        18,
+        22,
+        26,
+        30,
+        35,
+        40
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Miami",
+          "level": null,
+          "mp": "Get 15 One Shot Kills against Players",
+          "dmz": "Get 50 One Shot Kills against Players"
+        },
+        {
+          "name": "Wallpaper",
+          "level": null,
+          "mp": "Get 2 Player Kills without Reloading 10 times",
+          "dmz": "Get 2 Enemy Kills without Reloading 20 times"
+        },
+        {
+          "name": "Garland",
+          "level": null,
+          "mp": "Get 30 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Miami MP: Game Rant \"Get 20 Headshot Kills against Players\" vs CODMunity \"Get 15 One Shot Kills against Players\"; CODMunity used. Miami DMZ: Both sources say \"One Shot Kills against Players\" for the DMZ half; kept as published. Wallpaper MP: Game Rant \"Get 7 Double Kills against Players\" vs CODMunity \"Get 2 Player Kills without Reloading 10 times\"; CODMunity used."
+    },
+    {
+      "name": "SANG 9mm",
+      "class": "pistol",
+      "military": [
+        9,
+        13,
+        17,
+        21,
+        25,
+        28,
+        31,
+        35
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Autumn",
+          "level": null,
+          "mp": "Get 25 Player Kills while Aiming Down Sights",
+          "dmz": "Get 75 Enemy Kills while Aiming Down Sights"
+        },
+        {
+          "name": "Snakeskin",
+          "level": null,
+          "mp": "Get 3 Player Kills without dying 5 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 15 times"
+        },
+        {
+          "name": "Space Time",
+          "level": null,
+          "mp": "Get 50 Player Kills while using Akimbo",
+          "dmz": "Get 125 Enemy Kills while using Akimbo"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Snakeskin MP: Game Rant \"Get 50 Player Kills while using Akimbo\" vs CODMunity \"Get 3 Player Kills without dying 5 times\"; CODMunity used. Space Time MP: Game Rant \"Get 3 Player Kills without dying 5 times\" vs CODMunity \"Get 50 Player Kills while using Akimbo\"; CODMunity used."
+    },
+    {
+      "name": "JOKR",
+      "class": "launcher",
+      "military": [
+        6,
+        11,
+        16,
+        21,
+        26,
+        31,
+        36,
+        41
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Thicket",
+          "level": null,
+          "mp": "Get 5 Double Kills against Players",
+          "dmz": "Get 15 Double Kills against Enemies"
+        },
+        {
+          "name": "Tectonic",
+          "level": null,
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 25 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Blue Tiger",
+          "level": null,
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 50 Enemy Kills in a single match"
+      },
+      "notes": "Thicket MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 5 Double Kills against Players\"; CODMunity used. Tectonic MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."
+    },
+    {
+      "name": "PILA",
+      "class": "launcher",
+      "military": [
+        6,
+        11,
+        16,
+        21,
+        26,
+        31,
+        36,
+        41
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Frontier",
+          "level": null,
+          "mp": "Get 10 Direct Shot Kills against Players",
+          "dmz": "Get 25 Direct Shot Kills against Enemies"
+        },
+        {
+          "name": "Sandwash",
+          "level": null,
+          "mp": "Get 5 Double Kills against Players",
+          "dmz": "Get 100 Double Kills against Enemies"
+        },
+        {
+          "name": "Digital Fall",
+          "level": null,
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 50 Enemy Kills in a single match"
+      },
+      "notes": ""
+    },
+    {
+      "name": "PM-40 Anvil",
+      "class": "launcher",
+      "military": [
+        6,
+        11,
+        16,
+        21,
+        26,
+        31,
+        36,
+        41
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Night Snow",
+          "level": null,
+          "mp": "Get 25 Direct Shot Kills against Players",
+          "dmz": "Get 25 Direct Shot Kills against Enemies"
+        },
+        {
+          "name": "Recursive",
+          "level": null,
+          "mp": "Get 2 Kills without Reloading 5 times against Players",
+          "dmz": "Get 2 Kills without Reloading 20 times against Enemies"
+        },
+        {
+          "name": "Urban Standard",
+          "level": null,
+          "mp": "Get 40 Player Kills while moving",
+          "dmz": "Get 100 Enemy Kills while moving"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 50 Enemy Kills in a single match"
+      },
+      "notes": "Military Camo 4: Game Rant says level 26, CODMunity says level 21; CODMunity used. Night Snow MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Players\"; CODMunity used. Night Snow DMZ: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 25 Direct Shot Kills against Enemies\"; CODMunity used. Recursive MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 2 Kills without Reloading 5 times against Players\"; CODMunity used. Urban Standard MP: Game Rant \"Destroy 30 Killstreaks or Vehicles\" vs CODMunity \"Get 40 Player Kills while moving\"; CODMunity used."
+    },
+    {
+      "name": "RPG-8",
+      "class": "launcher",
+      "military": [
+        6,
+        11,
+        16,
+        21,
+        26,
+        31,
+        36,
+        41
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Digi Bark",
+          "level": null,
+          "mp": "Get 10 Player Kills while Prone",
+          "dmz": "Get 25 Enemy Kills while Prone"
+        },
+        {
+          "name": "Stone Bits",
+          "level": null,
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 25 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Bubblegum Ops",
+          "level": null,
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 50 Enemy Kills in a single match"
+      },
+      "notes": "Digi Bark MP: Game Rant \"Get 10 Direct Shot Kills against Players\" vs CODMunity \"Get 10 Player Kills while Prone\"; CODMunity used. Stone Bits MP: Game Rant \"Get 5 Double Kills against Players\" vs CODMunity \"Get 10 Longshot Kills against Players\"; CODMunity used."
+    },
+    {
+      "name": "FSS Carbon Edge 1095",
+      "class": "melee",
+      "military": [
+        6,
+        11,
+        16,
+        21,
+        26,
+        31,
+        36,
+        41
+      ],
+      "military_names": null,
+      "special": [
+        {
+          "name": "Raster Lite",
+          "level": null,
+          "mp": "Get 25 Player Kills while Jumping",
+          "dmz": "Get 100 Enemy Kills while Jumping"
+        },
+        {
+          "name": "Stockpile",
+          "level": null,
+          "mp": "Get 25 Player Kills using the Heavy Melee Finisher",
+          "dmz": "Get 75 Enemy Kills using the Heavy Melee Finisher"
+        },
+        {
+          "name": "Deathbed",
+          "level": null,
+          "mp": "Get 2 Kills in 5 seconds against Players 25 times",
+          "dmz": "Get 2 Kills in 5 seconds against Enemies 50 times"
+        }
+      ],
+      "gold": {
+        "mp": "Get 15 Player Kills in a single match",
+        "dmz": "Get 100 Enemy Kills in a single match"
+      },
+      "notes": "Raster Lite MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills while Jumping\"; CODMunity used. Stockpile MP: Game Rant lists TBD, CODMunity publishes \"Get 25 Player Kills using the Heavy Melee Finisher\"; CODMunity used. Deathbed MP: Game Rant lists TBD, CODMunity publishes \"Get 2 Kills in 5 seconds against Players 25 times\"; CODMunity used."
+    }
+  ],
+  "platinum": {
+    "ar": {
+      "mp": "Get 50 Headshots against Players",
+      "dmz": "Get 100 Headshots against Enemies"
+    },
+    "smg": {
+      "mp": "Get 25 Player Kills from Behind",
+      "dmz": "Get 75 Enemy Kills from Behind"
+    },
+    "shotgun": {
+      "mp": "Get 50 Hipfire Kills against Players",
+      "dmz": "Get 125 Hipfire Kills against Enemies",
+      "note": "Game Rant lists 125 Hipfire Kills for MP; CODMunity lists 50 for Rezi 12 and Warlord (DMZ is 125 in both). CODMunity used."
+    },
+    "lmg": {
+      "mp": "Get 3 Player Kills without dying 15 times",
+      "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+    },
+    "marksman": {
+      "mp": "Get 75 Player Kills while Prone",
+      "dmz": "Get 150 Enemy Kills while Prone"
+    },
+    "sniper": {
+      "mp": "Get 75 Player Kills while Prone",
+      "dmz": "Get 150 Enemy Kills while Prone (Signal 50: 200)",
+      "note": "Game Rant says \"150 or 200\" Enemy Kills for DMZ; CODMunity shows 150 on Astaroth .57 and KG-7 Vulcan, 200 on Signal 50."
+    },
+    "launcher": {
+      "mp": "Get 2 Player Kills without taking Damage 15 times",
+      "dmz": "Get 2 Enemy Kills without taking Damage 50 times"
+    },
+    "pistol": {
+      "mp": "Get 20 Player Kills from Behind",
+      "dmz": "Get 75 Enemy Kills from Behind"
+    },
+    "melee": {
+      "mp": "Get 3 Kills without Dying 15 times against Players",
+      "dmz": "Get 3 Kills without taking Damage against Enemies 50 times"
+    }
+  },
+  "harmonic_break": {
+    "ar": {
+      "mp": "Get 25 Double Kills against Players",
+      "dmz": "Get 50 Double Kills against Enemies"
+    },
+    "smg": {
+      "mp": "Get 50 Hipfire Kills against Players",
+      "dmz": "Get 100 Hipfire Kills against Enemies"
+    },
+    "shotgun": {
+      "mp": "Get 2 Player Kills without Reloading 25 times",
+      "dmz": "Get 2 Enemy Kills without Reloading 50 times"
+    },
+    "lmg": {
+      "mp": "Get 2 Player Kills without releasing the trigger 25 times",
+      "dmz": "Get 2 Enemy Kills without releasing the trigger 75 times"
+    },
+    "marksman": {
+      "mp": "Get 75 One Shot Kills against Players",
+      "dmz": "Get 150 One Shot Kills against Enemies"
+    },
+    "sniper": {
+      "mp": "Get 75 One Shot Kills against Players",
+      "dmz": "Get 150 One Shot Kills against Enemies (Signal 50: 200)",
+      "note": "Game Rant says \"150 or 200\" for DMZ; CODMunity shows 150 on Astaroth .57 and KG-7 Vulcan, 200 on Signal 50."
+    },
+    "launcher": {
+      "mp": "Get 10 Player Kills in a match 7 times",
+      "dmz": "Get 10 Enemy Kills in a match 15 times"
+    },
+    "pistol": {
+      "mp": "Get 40 Hipfire Kills against Players",
+      "dmz": "Get 100 Hipfire Kills against Enemies"
+    },
+    "melee": {
+      "mp": "Get 25 Player Kills from Behind",
+      "dmz": "Get 75 Enemy Kills from Behind"
+    }
+  },
+  "divergence": "Complete 33 Harmonic Break Camo Challenges"
+}

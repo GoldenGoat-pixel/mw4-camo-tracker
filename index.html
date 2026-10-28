@@ -1,0 +1,735 @@
+<title>MW4 Camo Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
+
+<style>
+/* Dark-first: military command center with warm brass accent */
+:root {
+  --bg: #18171c;
+  --bg-raised: #222128;
+  --bg-hover: #2a2930;
+  --bg-inset: #131217;
+  --fg: #d8d4cc;
+  --fg-muted: #807c74;
+  --fg-dim: #504d47;
+  --accent: #b49a54;
+  --accent-subtle: rgba(180,154,84,0.15);
+  --border: #2e2d34;
+  --border-focus: #b49a54;
+  --military: #7a8c4a;
+  --special: #4a8a7a;
+  --gold: #caa44c;
+  --platinum: #8ca0b8;
+  --harmonic: #8a5cb0;
+  --divergence: #c04040;
+  --mastery-mp: #3a9aba;
+  --mastery-dmz: #ba6a3a;
+  --mastery-prestige: #d4aa30;
+  --radius: 10px;
+  --radius-sm: 6px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme:light) {
+  :root:not([data-theme="dark"]) {
+    --bg:#f0ede6;--bg-raised:#faf8f4;--bg-hover:#f0ede6;--bg-inset:#e6e3dc;
+    --fg:#2a2720;--fg-muted:#7a766c;--fg-dim:#b0aca4;
+    --accent:#8a7340;--accent-subtle:rgba(138,115,64,0.12);
+    --border:#dad6cc;--border-focus:#8a7340;
+    --military:#5a6c3a;--special:#3a7a6a;--gold:#aa8a3c;--platinum:#6a80a0;
+    --harmonic:#7a4ca0;--divergence:#b03030;
+    --mastery-mp:#2a8aaa;--mastery-dmz:#aa5a2a;--mastery-prestige:#b48a20;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"] {
+  --bg:#f0ede6;--bg-raised:#faf8f4;--bg-hover:#f0ede6;--bg-inset:#e6e3dc;
+  --fg:#2a2720;--fg-muted:#7a766c;--fg-dim:#b0aca4;
+  --accent:#8a7340;--accent-subtle:rgba(138,115,64,0.12);
+  --border:#dad6cc;--border-focus:#8a7340;
+  --military:#5a6c3a;--special:#3a7a6a;--gold:#aa8a3c;--platinum:#6a80a0;
+  --harmonic:#7a4ca0;--divergence:#b03030;
+  --mastery-mp:#2a8aaa;--mastery-dmz:#aa5a2a;--mastery-prestige:#b48a20;
+  color-scheme:light;
+}
+
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: system-ui, -apple-system, sans-serif;
+  padding-inline: 16px; padding-block: 0;
+  max-width: 720px; margin: 0 auto;
+}
+*, *::before, *::after { box-sizing: border-box }
+h1,h2,h3 { font-family: 'Chakra Petch', system-ui, sans-serif; margin: 0; font-weight: 700 }
+p { margin: 0 }
+
+/* ---- Header ---- */
+.header {
+  padding: 32px 0 24px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 28px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 12px;
+}
+.header h1 { font-size: 26px; letter-spacing: 1px; text-transform: uppercase; line-height: 1.1 }
+.header .sub {
+  font-size: 13px; color: var(--fg-muted); margin-top: 6px;
+  font-family: 'Chakra Petch', system-ui, sans-serif; letter-spacing: 0.5px;
+}
+.btn-sm {
+  padding: 7px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg-raised);
+  color: var(--fg-muted); font-size: 12px; cursor: pointer;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.15s;
+}
+.btn-sm:hover { border-color: var(--fg-dim); color: var(--fg) }
+.btn-danger { color: #c04040; border-color: rgba(192,64,64,0.3) }
+.btn-danger:hover { background: rgba(192,64,64,0.1); border-color: #c04040 }
+
+/* ---- Stats ---- */
+.stats-row {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 12px; margin-bottom: 28px;
+}
+@media (max-width: 640px) {
+  .stats-row { grid-template-columns: 1fr 1fr }
+  .stat-main { grid-column: 1 / -1 }
+}
+.stat-card {
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; text-align: center;
+}
+.stat-val {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-size: 30px; font-weight: 700; line-height: 1.2;
+}
+.stat-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--fg-muted); margin-top: 4px;
+}
+.stat-detail { font-size: 12px; color: var(--fg-dim); margin-top: 2px; font-variant-numeric: tabular-nums }
+.stat-bar { height: 6px; background: var(--bg-inset); border-radius: 3px; margin-top: 10px; overflow: hidden }
+.stat-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.4s ease }
+
+/* ---- Search ---- */
+.search-wrap { margin-bottom: 16px }
+.search-input {
+  width: 100%; padding: 12px 16px;
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); color: var(--fg);
+  font-size: 15px; font-family: inherit;
+}
+.search-input::placeholder { color: var(--fg-dim) }
+.search-input:focus { outline: none; border-color: var(--border-focus) }
+
+/* ---- Category Dropdown ---- */
+.cat-dropdown { position: relative; margin-bottom: 24px }
+.cat-select-btn {
+  width: 100%; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); color: var(--fg);
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-size: 16px; font-weight: 600; letter-spacing: 0.5px;
+  text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+}
+.cat-select-btn:hover { border-color: var(--fg-dim) }
+.cat-select-btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
+.cat-select-btn .arrow {
+  transition: transform 0.2s; color: var(--fg-muted);
+}
+.cat-dropdown.open .cat-select-btn { border-color: var(--accent) }
+.cat-dropdown.open .arrow { transform: rotate(180deg) }
+.cat-menu {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; z-index: 20;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+.cat-menu-item {
+  width: 100%; padding: 13px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border: none; background: transparent; color: var(--fg);
+  font-size: 14px; font-family: inherit; cursor: pointer;
+  transition: background 0.1s; text-align: left;
+}
+.cat-menu-item:hover { background: var(--bg-hover) }
+.cat-menu-item.active { color: var(--accent); font-weight: 600 }
+.cat-menu-item + .cat-menu-item { border-top: 1px solid var(--border) }
+.cat-menu-item .cat-menu-meta {
+  font-size: 12px; color: var(--fg-dim); font-variant-numeric: tabular-nums;
+}
+.cat-menu-item.active .cat-menu-meta { color: var(--accent); opacity: 0.7 }
+
+/* ---- Weapon Cards ---- */
+.weapons-list { display: flex; flex-direction: column; gap: 12px }
+.weapon-card {
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s;
+}
+.weapon-card[hidden] { display: none !important }
+.weapon-card.complete { border-color: var(--accent) }
+
+.weapon-card-header {
+  padding: 18px 22px; cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 14px;
+  transition: background 0.15s;
+}
+.weapon-card-header:hover { background: var(--bg-hover) }
+
+.w-chevron { color: var(--fg-dim); transition: transform 0.2s; flex-shrink: 0 }
+.weapon-card.expanded .w-chevron { transform: rotate(90deg) }
+
+.weapon-info { flex: 1; min-width: 0 }
+.weapon-name {
+  font-size: 16px; font-weight: 600;
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+}
+.weapon-meta {
+  display: flex; align-items: center; gap: 10px; margin-top: 6px;
+}
+.weapon-frac {
+  font-size: 13px; color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.weapon-bar {
+  flex: 1; height: 6px; background: var(--bg-inset);
+  border-radius: 3px; overflow: hidden; max-width: 200px;
+}
+.weapon-bar-fill {
+  height: 100%; background: var(--accent);
+  border-radius: 3px; transition: width 0.3s ease;
+}
+.weapon-badge {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--accent); font-family: 'Chakra Petch', system-ui, sans-serif;
+  font-weight: 600; padding: 3px 10px;
+  background: var(--accent-subtle); border-radius: 20px;
+}
+.weapon-badge[hidden] { display: none !important }
+
+/* Expanded detail */
+.weapon-detail {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.weapon-card.expanded .weapon-detail { grid-template-rows: 1fr }
+.weapon-detail-inner { overflow: hidden }
+.weapon-detail-pad {
+  padding: 4px 22px 24px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+
+/* ---- Camo tiers ---- */
+.camo-group {}
+.camo-tier-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--fg-muted); display: block; margin-bottom: 8px;
+  font-family: 'Chakra Petch', system-ui, sans-serif; font-weight: 600;
+}
+.camo-tiles { display: flex; flex-wrap: wrap; gap: 8px }
+
+/* ---- Camo tile buttons ---- */
+.tile {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 58px; height: 40px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg-inset); color: var(--fg-muted);
+  font-size: 13px; font-family: inherit; cursor: pointer;
+  transition: all 0.15s; padding: 0 10px; gap: 4px;
+}
+.tile:hover { border-color: var(--fg-dim); background: var(--bg-hover) }
+.tile:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
+.tile .tile-check { display: none; font-size: 11px }
+.tile[aria-pressed="true"] { color: #fff; font-weight: 600 }
+.tile[aria-pressed="true"] .tile-check { display: inline }
+.tile[data-tier="military"][aria-pressed="true"] { background: var(--military); border-color: var(--military) }
+.tile[data-tier="special"][aria-pressed="true"]  { background: var(--special);  border-color: var(--special) }
+.tile[data-tier="gold"][aria-pressed="true"]     { background: var(--gold);     border-color: var(--gold);     color: #1a1a1a }
+.tile[data-tier="platinum"][aria-pressed="true"]  { background: var(--platinum); border-color: var(--platinum); color: #1a1a1a }
+.tile[data-tier="harmonic"][aria-pressed="true"]  { background: var(--harmonic); border-color: var(--harmonic) }
+.tile[data-tier="divergence"][aria-pressed="true"]{ background: var(--divergence);border-color: var(--divergence) }
+
+/* ---- Mastery section ---- */
+.mastery-section { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border) }
+.mastery-section h2 { font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px }
+.mastery-req-text { font-size: 13px; color: var(--fg-muted); margin-bottom: 20px }
+.mastery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px }
+@media (max-width: 600px) { .mastery-grid { grid-template-columns: 1fr } }
+.mastery-group h3 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--fg-muted); margin-bottom: 10px;
+}
+.mastery-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; background: var(--bg-raised);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: 8px; transition: all 0.15s;
+}
+.mastery-card.locked { opacity: 0.45 }
+.mastery-card.checked { border-color: var(--accent) }
+.mastery-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0 }
+.mastery-info { flex: 1; min-width: 0 }
+.mastery-name { font-size: 14px; font-weight: 600 }
+.mastery-desc { font-size: 12px; color: var(--fg-muted); margin-top: 2px }
+.mastery-toggle {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--border); background: transparent;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: transparent; font-size: 14px; transition: all 0.15s; flex-shrink: 0;
+}
+.mastery-toggle:hover { border-color: var(--fg-dim) }
+.mastery-toggle:disabled { cursor: not-allowed; opacity: 0.4 }
+.mastery-toggle:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 1px }
+.mastery-card.checked .mastery-toggle { background: var(--accent); border-color: var(--accent); color: #fff }
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; padding: 16px;
+}
+.modal-overlay[hidden] { display: none !important }
+.modal-box {
+  background: var(--bg-raised); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+  max-width: 440px; width: 100%; max-height: 80vh; overflow-y: auto;
+}
+.modal-box h3 { font-size: 18px; margin-bottom: 12px }
+.modal-box p { font-size: 14px; color: var(--fg-muted); margin-bottom: 20px; line-height: 1.5 }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px }
+.modal-btn {
+  padding: 10px 22px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg-raised);
+  color: var(--fg); font-size: 14px; cursor: pointer;
+  font-family: 'Chakra Petch', system-ui, sans-serif; transition: all 0.15s;
+}
+.modal-btn:hover { background: var(--bg-hover) }
+.modal-btn.danger { background: #c04040; border-color: #c04040; color: #fff }
+.modal-btn.danger:hover { opacity: 0.9 }
+
+/* ---- Toast ---- */
+.toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: var(--bg-raised); border: 1px solid var(--accent);
+  color: var(--fg); padding: 12px 24px; border-radius: var(--radius);
+  font-size: 14px; z-index: 200; opacity: 0;
+  transition: opacity 0.3s; pointer-events: none;
+}
+.toast.show { opacity: 1 }
+
+/* ---- Animation ---- */
+@keyframes flash-complete { 0% { background: var(--accent-subtle) } 100% { background: var(--bg-raised) } }
+.weapon-card.just-done { animation: flash-complete 0.8s ease }
+@media (prefers-reduced-motion: reduce) { .weapon-card.just-done { animation: none } }
+
+/* ---- Scrollbar on very narrow screens ---- */
+@media (max-width: 400px) {
+  .camo-tiles { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px }
+  .camo-tiles::-webkit-scrollbar { height: 3px }
+  .camo-tiles::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
+}
+
+.app-footer { height: 48px }
+</style>
+
+<div id="app"></div>
+<div id="modal-overlay" class="modal-overlay" hidden></div>
+<div id="toast" class="toast"></div>
+
+<script>
+const CATS = [
+  { id:'ar', name:'Assault Rifles', weapons:[
+    {id:'han86',name:'Han 86'},{id:'m4',name:'M4'},{id:'hyeon_burst',name:'Hyeon Burst'},
+    {id:'kastov762',name:'Kastov 762'},{id:'patriot_xmr',name:'Patriot XMR'},
+    {id:'axion',name:'Axion'},{id:'oden',name:'Oden'},{id:'cronen_squall',name:'Cronen Squall'}
+  ]},
+  { id:'smg', name:'SMGs', weapons:[
+    {id:'iso_nightshade',name:'ISO Nightshade'},{id:'ppsh41',name:'PPSh-41'},
+    {id:'x58_nyx',name:'X-58 Nyx'},{id:'wz55_striga',name:'WZ.55 Striga'},{id:'vel46',name:'VEL 46'}
+  ]},
+  { id:'sg', name:'Shotguns', weapons:[
+    {id:'rezi12',name:'Rezi 12'},{id:'warlord',name:'Warlord'}
+  ]},
+  { id:'lmg', name:'LMGs', weapons:[
+    {id:'apoc338',name:'APOC-338'},{id:'finn_lmg',name:'FiNN LMG'},{id:'type73',name:'Type 73'}
+  ]},
+  { id:'mr', name:'Marksman Rifles', weapons:[
+    {id:'mar9',name:'MAR-9'},{id:'mosin_nagant',name:'Mosin-Nagant'},{id:'oris86',name:'Oris 8.6'}
+  ]},
+  { id:'sr', name:'Sniper Rifles', weapons:[
+    {id:'astaroth57',name:'Astaroth .57'},{id:'kg7_vulcan',name:'KG-7 Vulcan'},{id:'signal50',name:'Signal 50'}
+  ]},
+  { id:'pistol', name:'Pistols', weapons:[
+    {id:'gs50',name:'.50 GS'},{id:'krait_p68',name:'Krait P68'},
+    {id:'mojave357',name:'Mojave .357'},{id:'sang9mm',name:'SANG 9mm'}
+  ]},
+  { id:'launcher', name:'Launchers', weapons:[
+    {id:'jokr',name:'JOKR'},{id:'pila',name:'PILA'},
+    {id:'pm40_anvil',name:'PM-40 Anvil'},{id:'rpg8',name:'RPG-8'}
+  ]},
+  { id:'melee', name:'Melee', weapons:[
+    {id:'combat_knife',name:'Combat Knife'},{id:'fss_carbon',name:'FSS Carbon Edge 1095'}
+  ]}
+];
+
+const MIL_LEVELS = [10,15,20,25,30,40,50,65];
+const PER_WEAPON = 15;
+const ALL_IDS = CATS.flatMap(c => c.weapons.map(w => w.id));
+const TOTAL_WEAPONS = ALL_IDS.length;
+const TOTAL_CAMOS = TOTAL_WEAPONS * PER_WEAPON;
+
+const MASTERY_ITEMS = [
+  {id:'mercurial_drift',name:'Mercurial Drift',desc:'10 kills/match x250',mode:'mp'},
+  {id:'polyatomic_reforged',name:'Polyatomic Reforged',desc:'3 kills w/o damage x300',mode:'mp'},
+  {id:'orion_reforged',name:'Orion Reforged',desc:'5 kills w/o dying x500',mode:'mp'},
+  {id:'chiral',name:'Chiral',desc:'2,500 Tier 3+ kills',mode:'dmz'},
+  {id:'ripple_tide',name:'Ripple Tide',desc:'2 LT dog tags x50 deploys',mode:'dmz'},
+  {id:'helio',name:'Helio',desc:'25,000 Legendary weapon kills',mode:'dmz'},
+  {id:'pyroclast_scatter',name:'Pyroclast Scatter',desc:'Weapon Prestige Master Lv.150',mode:'prestige'}
+];
+
+function tierOf(i){ return i<8?'military':i<11?'special':['gold','platinum','harmonic','divergence'][i-11] }
+function labelOf(i){ return i<8?'Lv.'+MIL_LEVELS[i]:i<11?['I','II','III'][i-8]:['Gold','Platinum','Harmonic Break','Divergence'][i-11] }
+
+let state, expandedWeapons = new Set(), activeCat = 'all', searchQ = '', menuOpen = false;
+
+function loadState(){
+  let s = {};
+  try { const r = localStorage.getItem('mw4_camo_tracker'); if(r) s = JSON.parse(r); } catch(e){}
+  ALL_IDS.forEach(id => {
+    if(!Array.isArray(s[id]) || s[id].length !== PER_WEAPON) s[id] = new Array(PER_WEAPON).fill(false);
+  });
+  if(!s._mastery || typeof s._mastery !== 'object'){
+    s._mastery = {};
+    MASTERY_ITEMS.forEach(m => s._mastery[m.id] = false);
+  }
+  MASTERY_ITEMS.forEach(m => { if(typeof s._mastery[m.id] !== 'boolean') s._mastery[m.id] = false; });
+  return s;
+}
+function saveState(){ try { localStorage.setItem('mw4_camo_tracker', JSON.stringify(state)); } catch(e){} }
+state = loadState();
+
+function wpDone(id){ return state[id].filter(Boolean).length }
+function catGold(catId){ return CATS.find(c=>c.id===catId).weapons.filter(w=>state[w.id][11]).length }
+function catTotal(catId){ return CATS.find(c=>c.id===catId).weapons.length }
+function allDivergence(){ return ALL_IDS.every(id => state[id][14]) }
+
+function catLabel(catId){
+  if(catId==='all') return 'All Weapons';
+  const c = CATS.find(x=>x.id===catId);
+  return c ? c.name : 'All Weapons';
+}
+
+function visibleWeapons(){
+  return CATS.flatMap(c => {
+    if(activeCat!=='all' && activeCat!==c.id) return [];
+    return c.weapons.filter(w => !searchQ || w.name.toLowerCase().includes(searchQ));
+  });
+}
+
+function buildApp(){
+  const done = ALL_IDS.reduce((s,id)=>s+wpDone(id),0);
+  const pct = TOTAL_CAMOS ? Math.round(done/TOTAL_CAMOS*100) : 0;
+  const gc = ALL_IDS.filter(id=>state[id][11]).length;
+  const pc = ALL_IDS.filter(id=>state[id][12]).length;
+  const hc = ALL_IDS.filter(id=>state[id][13]).length;
+  const dc = ALL_IDS.filter(id=>state[id][14]).length;
+
+  document.getElementById('app').innerHTML = `
+    <header class="header">
+      <div>
+        <h1>MW4 Camo Tracker</h1>
+        <p class="sub">Modern Warfare 4 Mastery Camo Progress</p>
+      </div>
+      <div>
+        <button class="btn-sm btn-danger" id="btn-reset">Reset</button>
+      </div>
+    </header>
+
+    <section class="stats-row">
+      <div class="stat-card stat-main">
+        <div class="stat-val" id="s-ov">${pct}%</div>
+        <div class="stat-label">Overall</div>
+        <div class="stat-detail" id="s-od">${done} / ${TOTAL_CAMOS}</div>
+        <div class="stat-bar"><div class="stat-bar-fill" id="s-ob" style="width:${pct}%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--gold)" id="s-g">${gc}</div>
+        <div class="stat-label">Gold</div>
+        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--platinum)" id="s-p">${pc}</div>
+        <div class="stat-label">Platinum</div>
+        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--harmonic)" id="s-h">${hc}</div>
+        <div class="stat-label">Harmonic</div>
+        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--divergence)" id="s-d">${dc}</div>
+        <div class="stat-label">Divergence</div>
+        <div class="stat-detail">of ${TOTAL_WEAPONS}</div>
+      </div>
+    </section>
+
+    <div class="search-wrap">
+      <input type="text" id="search" class="search-input" placeholder="Search weapons...">
+    </div>
+
+    <div class="cat-dropdown" id="cat-dropdown">
+      <button class="cat-select-btn" id="cat-btn">
+        <span id="cat-btn-label">${catLabel(activeCat)}</span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="cat-menu" id="cat-menu" hidden>
+        <button class="cat-menu-item${activeCat==='all'?' active':''}" data-cat="all">
+          <span>All Weapons</span>
+          <span class="cat-menu-meta">${TOTAL_WEAPONS} weapons</span>
+        </button>
+        ${CATS.map(c => {
+          const g=catGold(c.id), t=c.weapons.length;
+          return `<button class="cat-menu-item${activeCat===c.id?' active':''}" data-cat="${c.id}">
+            <span>${c.name}</span>
+            <span class="cat-menu-meta" id="cm-${c.id}">${g}/${t} Gold</span>
+          </button>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="weapons-list" id="weapons-list">
+      ${buildWeaponCards()}
+    </div>
+
+    <section class="mastery-section">
+      <h2>Mastery Camos</h2>
+      <p class="mastery-req-text" id="mastery-req">Requires Divergence on all ${TOTAL_WEAPONS} weapons (${dc}/${TOTAL_WEAPONS})</p>
+      <div class="mastery-grid">
+        <div class="mastery-group">
+          <h3>Multiplayer</h3>
+          ${MASTERY_ITEMS.filter(m=>m.mode==='mp').map(m=>buildMastery(m)).join('')}
+        </div>
+        <div class="mastery-group">
+          <h3>DMZ</h3>
+          ${MASTERY_ITEMS.filter(m=>m.mode==='dmz').map(m=>buildMastery(m)).join('')}
+          <h3 style="margin-top:20px">Prestige</h3>
+          ${MASTERY_ITEMS.filter(m=>m.mode==='prestige').map(m=>buildMastery(m)).join('')}
+        </div>
+      </div>
+    </section>
+    <div class="app-footer"></div>
+  `;
+  attachEvents();
+}
+
+function buildWeaponCards(){
+  const weapons = visibleWeapons();
+  if(!weapons.length) return '<p style="text-align:center;padding:32px 0;color:var(--fg-dim)">No weapons found</p>';
+  return weapons.map(w => buildWeapon(w)).join('');
+}
+
+function buildWeapon(w){
+  const d = wpDone(w.id), full = d===PER_WEAPON;
+  const exp = expandedWeapons.has(w.id);
+  return `
+  <div class="weapon-card${full?' complete':''}${exp?' expanded':''}" id="wr-${w.id}">
+    <div class="weapon-card-header" data-weapon="${w.id}">
+      <svg class="w-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="weapon-info">
+        <div class="weapon-name">${w.name}</div>
+        <div class="weapon-meta">
+          <span class="weapon-frac" id="wf-${w.id}">${d} / ${PER_WEAPON}</span>
+          <div class="weapon-bar"><div class="weapon-bar-fill" id="wbr-${w.id}" style="width:${d/PER_WEAPON*100}%"></div></div>
+        </div>
+      </div>
+      <span class="weapon-badge" id="wb-${w.id}"${full?'':' hidden'}>COMPLETE</span>
+    </div>
+    <div class="weapon-detail"><div class="weapon-detail-inner"><div class="weapon-detail-pad">
+      <div class="camo-group">
+        <span class="camo-tier-label">Military</span>
+        <div class="camo-tiles">${[0,1,2,3,4,5,6,7].map(i=>buildTile(w.id,i)).join('')}</div>
+      </div>
+      <div class="camo-group">
+        <span class="camo-tier-label">Special</span>
+        <div class="camo-tiles">${[8,9,10].map(i=>buildTile(w.id,i)).join('')}</div>
+      </div>
+      <div class="camo-group">
+        <span class="camo-tier-label">Completionist</span>
+        <div class="camo-tiles">${[11,12,13,14].map(i=>buildTile(w.id,i)).join('')}</div>
+      </div>
+    </div></div></div>
+  </div>`;
+}
+
+function buildTile(wid, i){
+  const on = state[wid][i];
+  return `<button class="tile" id="t-${wid}-${i}" data-weapon="${wid}" data-i="${i}" data-tier="${tierOf(i)}" aria-pressed="${on}" role="checkbox"><span class="tile-check">✓</span><span>${labelOf(i)}</span></button>`;
+}
+
+function buildMastery(m){
+  const on = state._mastery[m.id];
+  const locked = !allDivergence() && m.mode !== 'prestige';
+  const dotColor = m.mode==='mp'?'var(--mastery-mp)':m.mode==='dmz'?'var(--mastery-dmz)':'var(--mastery-prestige)';
+  return `
+  <div class="mastery-card${locked?' locked':''}${on?' checked':''}" id="mc-${m.id}">
+    <div class="mastery-dot" style="background:${dotColor}"></div>
+    <div class="mastery-info">
+      <div class="mastery-name">${m.name}</div>
+      <div class="mastery-desc">${m.desc}</div>
+    </div>
+    <button class="mastery-toggle" id="mt-${m.id}" data-mastery="${m.id}"${locked?' disabled':''}>${on?'✓':''}</button>
+  </div>`;
+}
+
+// Updates
+function updateStats(){
+  const done = ALL_IDS.reduce((s,id)=>s+wpDone(id),0);
+  const pct = TOTAL_CAMOS?Math.round(done/TOTAL_CAMOS*100):0;
+  const gc=ALL_IDS.filter(id=>state[id][11]).length;
+  const pc=ALL_IDS.filter(id=>state[id][12]).length;
+  const hc=ALL_IDS.filter(id=>state[id][13]).length;
+  const dc=ALL_IDS.filter(id=>state[id][14]).length;
+  document.getElementById('s-ov').textContent=pct+'%';
+  document.getElementById('s-od').textContent=done+' / '+TOTAL_CAMOS;
+  document.getElementById('s-ob').style.width=pct+'%';
+  document.getElementById('s-g').textContent=gc;
+  document.getElementById('s-p').textContent=pc;
+  document.getElementById('s-h').textContent=hc;
+  document.getElementById('s-d').textContent=dc;
+  document.getElementById('mastery-req').textContent=`Requires Divergence on all ${TOTAL_WEAPONS} weapons (${dc}/${TOTAL_WEAPONS})`;
+  CATS.forEach(c=>{
+    const el=document.getElementById('cm-'+c.id);
+    if(el) el.textContent=catGold(c.id)+'/'+catTotal(c.id)+' Gold';
+  });
+  const unlocked=allDivergence();
+  MASTERY_ITEMS.forEach(m=>{
+    if(m.mode==='prestige') return;
+    const card=document.getElementById('mc-'+m.id);
+    const btn=document.getElementById('mt-'+m.id);
+    if(unlocked){card.classList.remove('locked');btn.disabled=false;}
+    else{card.classList.add('locked');btn.disabled=true;}
+  });
+}
+
+function updateWeapon(wid){
+  const d=wpDone(wid), full=d===PER_WEAPON;
+  const card=document.getElementById('wr-'+wid);
+  if(!card) return;
+  document.getElementById('wf-'+wid).textContent=d+' / '+PER_WEAPON;
+  document.getElementById('wbr-'+wid).style.width=(d/PER_WEAPON*100)+'%';
+  const badge=document.getElementById('wb-'+wid);
+  badge.hidden=!full;
+  if(full){card.classList.add('complete');card.classList.add('just-done');setTimeout(()=>card.classList.remove('just-done'),800);}
+  else card.classList.remove('complete');
+}
+
+// Events
+function attachEvents(){
+  const app=document.getElementById('app');
+
+  app.addEventListener('click', e => {
+    const tile=e.target.closest('.tile');
+    if(tile){
+      const wid=tile.dataset.weapon, i=+tile.dataset.i;
+      state[wid][i]=!state[wid][i];
+      tile.setAttribute('aria-pressed', state[wid][i]);
+      saveState();
+      updateWeapon(wid);
+      updateStats();
+      return;
+    }
+    const wh=e.target.closest('.weapon-card-header');
+    if(wh){
+      const wid=wh.dataset.weapon;
+      const card=document.getElementById('wr-'+wid);
+      card.classList.toggle('expanded');
+      if(card.classList.contains('expanded')) expandedWeapons.add(wid); else expandedWeapons.delete(wid);
+      return;
+    }
+    const catBtn=e.target.closest('#cat-btn');
+    if(catBtn){
+      toggleMenu();
+      return;
+    }
+    const catItem=e.target.closest('.cat-menu-item');
+    if(catItem){
+      activeCat=catItem.dataset.cat;
+      closeMenu();
+      document.getElementById('cat-btn-label').textContent=catLabel(activeCat);
+      document.querySelectorAll('.cat-menu-item').forEach(el=>el.classList.toggle('active',el.dataset.cat===activeCat));
+      rebuildWeapons();
+      return;
+    }
+    const mt=e.target.closest('.mastery-toggle');
+    if(mt && !mt.disabled){
+      const mid=mt.dataset.mastery;
+      state._mastery[mid]=!state._mastery[mid];
+      const card=document.getElementById('mc-'+mid);
+      card.classList.toggle('checked', state._mastery[mid]);
+      mt.textContent=state._mastery[mid]?'✓':'';
+      saveState();
+      return;
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if(menuOpen && !e.target.closest('#cat-dropdown')) closeMenu();
+  });
+
+  document.getElementById('search').addEventListener('input', e => {
+    searchQ=e.target.value.toLowerCase();
+    rebuildWeapons();
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', showReset);
+}
+
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  document.getElementById('cat-dropdown').classList.toggle('open', menuOpen);
+  document.getElementById('cat-menu').hidden=!menuOpen;
+}
+function closeMenu(){
+  menuOpen=false;
+  document.getElementById('cat-dropdown').classList.remove('open');
+  document.getElementById('cat-menu').hidden=true;
+}
+
+function rebuildWeapons(){
+  document.getElementById('weapons-list').innerHTML=buildWeaponCards();
+}
+
+// Modal / Toast
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+function showModal(html){
+  const ov=document.getElementById('modal-overlay');
+  ov.innerHTML=`<div class="modal-box">${html}</div>`;
+  ov.hidden=false;
+  ov.addEventListener('click', e=>{if(e.target===ov) hideModal();},{once:true});
+}
+function hideModal(){ document.getElementById('modal-overlay').hidden=true; }
+
+function showReset(){
+  showModal(`<h3>Reset All Progress</h3><p>This will clear all your camo tracking data. This cannot be undone.</p><div class="modal-actions"><button class="modal-btn" onclick="hideModal()">Cancel</button><button class="modal-btn danger" id="do-reset">Reset Everything</button></div>`);
+  setTimeout(()=>{
+    document.getElementById('do-reset').addEventListener('click',()=>{
+      ALL_IDS.forEach(id=>state[id]=new Array(PER_WEAPON).fill(false));
+      MASTERY_ITEMS.forEach(m=>state._mastery[m.id]=false);
+      saveState();expandedWeapons.clear();activeCat='all';searchQ='';menuOpen=false;
+      hideModal();buildApp();toast('Progress reset');
+    });
+  },50);
+}
+
+buildApp();
+</script>
